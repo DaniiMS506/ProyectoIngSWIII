@@ -94,6 +94,12 @@ body {
   -webkit-tap-highlight-color: #fff0
 }
 
+/* Optimizar IMG */
+img {
+  image-rendering: optimizeSpeed; 
+  image-rendering: -webkit-optimize-contrast; /* Para navegadores basados en WebKit como Chrome y Safari */
+}
+
 hr {
   margin: 1rem 0;
   color: inherit;
