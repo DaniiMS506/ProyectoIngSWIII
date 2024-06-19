@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>E-Commerce</title>
+    <!-- Web Icon -->
+    <link id="favicon1" runat="server" rel="shortcut icon" href="IMG/Icons/1.ico" type="image/x-icon" />
+    <!-- Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!--Icons -->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link href="CSS/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="CSS/CarouselStyle.css">
+    <link rel="stylesheet" href="CSS/scrollBar.css">
+
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!"> <img src="IMG/Logo.png" style="width: 115px; height: 95px;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">Informaci&oacute;n</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#!">Productos</a></li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li><a class="dropdown-item" href="#!">Productos m&aacute;s vendidos</a></li>
+                            <li><a class="dropdown-item" href="#!">Cont&aacute;ctenos</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Login Button -->
+                    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user fa-fw"></i> </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#!">Login</a></li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                                <li><a class="dropdown-item" href="#!">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </ul>
+                <!-- Carrito de Compras -->
+                <form class="d-flex">
+                    <button class="btn btn-outline-dark" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        Carrito
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header-->
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">InventaTech Pro</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Dise&ntilde;o y desarrollo con excelencia</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section-->
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <!-- Carousel -->
+            <h2 style="text-align: center;">Productos Premium</h2>
+            <hr>
+
+            <!-- carousel -->
+            <div class="carousel">
+                <!-- list item -->
+                <div class="list">
+                    <div class="item">
+                        <img src="IMG/Carousel IMG/Nike Air Mag.jpg">
+                        <div class="content">
+                            <div class="author">Nike Air Mag</div>
+                            <div class="title">Nike</div>
+                            <div class="topic">Air Mag</div>
+                            <div class="des">
+                                <!-- lorem 50 -->
+                                Las Nike Air Mag son unas zapatillas icónicas que fueron diseñadas originalmente para la
+                                película "Volver al Futuro II". Estas zapatillas cuentan con un diseño futurista y son
+                                conocidas por su característica de autoajuste. Fueron lanzadas al mercado en ediciones
+                                limitadas, lo que las convierte en un objeto de deseo para los coleccionistas siendo
+                                unas zapatillas muy exclusivas.
+                            </div>
+                            <div class="buttons">
+                                <button>SEE MORE</button>
+                                <button>$44,501.00</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="IMG/Carousel IMG/Air Jordan 1 Louis Vuitton.jpg">
+                        <div class="content">
+                            <div class="author">Nike Air Jordan 1 Louis Vuitton</div>
+                            <div class="title">Air Jordan 1</div>
+                            <div class="topic">Louis Vuitton</div>
+                            <div class="des">
+                                Las Air Jordan 1 Louis Vuitton son una colaboración exclusiva entre Nike y Louis
+                                Vuitton. Estas zapatillas combinan el icónico diseño de las Air Jordan 1 con la
+                                elegancia y lujo de Louis Vuitton. Con materiales de alta calidad y detalles únicos, son
+                                muy deseadas por coleccionistas y amantes de la moda.
+                            </div>
+                            <div class="buttons">
+                                <button>SEE MORE</button>
+                                <button>$4,000.00</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="IMG/Carousel IMG/Air Jordan 1.jpg">
+                        <div class="content">
+                            <div class="author">Nike Air Jordan 1</div>
+                            <div class="title">Nike</div>
+                            <div class="topic">Air Jordan 1</div>
+                            <div class="des">
+                                Las Air Jordan 1 son unas zapatillas icónicas lanzadas en 1985, diseñadas para Michael
+                                Jordan. Con su estilo clásico y versátil, revolucionaron el calzado deportivo y se
+                                convirtieron en un símbolo de la cultura sneaker. Son altamente valoradas por
+                                coleccionistas y aficionados del baloncesto.
+                            </div>
+                            <div class="buttons">
+                                <button>SEE MORE</button>
+                                <button>$229,54.00</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="IMG/Carousel IMG/Nike Air Force 1.jpg">
+                        <div class="content">
+                            <div class="author">Nike Air Force 1</div>
+                            <div class="title">Nike</div>
+                            <div class="topic">Air Force 1</div>
+                            <div class="des">
+                                Las Nike Air Force 1 son unas zapatillas legendarias lanzadas en 1982. Con su diseño
+                                clásico y la revolucionaria tecnología Air, se convirtieron en un icono tanto en el
+                                deporte como en la moda urbana. Son muy populares y apreciadas por coleccionistas y
+                                aficionados a las zapatillas.
+                            </div>
+                            <div class="buttons">
+                                <button>SEE MORE</button>
+                                <button>$150,00.00</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- list thumnail -->
+                <div class="thumbnail">
+                    <div class="item">
+                        <img src="IMG/Carousel IMG/Nike Air Mag.jpg">
+                        <div class="content">
+                            <div class="title">
+                                Air Mag
+                            </div>
+                            <div class="description">
+                                Nike
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="IMG/Carousel IMG/Air Jordan 1 Louis Vuitton.jpg">
+                        <div class="content">
+                            <div class="title">
+                                Air Jordan 1
+                            </div>
+                            <div class="description">
+                                Nike ft. Louis Vuitton
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="IMG/Carousel IMG/Air Jordan 1.jpg">
+                        <div class="content">
+                            <div class="title">
+                                Air Jordan 1
+                            </div>
+                            <div class="description">
+                                Nike Retro
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="IMG/Carousel IMG/Nike Air Force 1.jpg">
+                        <div class="content">
+                            <div class="title">
+                                Air Force 1
+                            </div>
+                            <div class="description">
+                                Nike
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- next prev -->
+
+                <div class="arrows">
+                    <button id="prev"> <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    </button>
+                    <button id="next"> <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <!-- time running -->
+                <div class="time"></div>
+            </div>
+
+            <!-- Cards -->
+            <h2 style="text-align: center;">Productos</h2>
+            <hr>
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Fancy Product</h5>
+                                <!-- Product price-->
+                                $40.00 - $80.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
+                        </div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Special Item</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">$20.00</span>
+                                $18.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
+                        </div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Sale Item</h5>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">$50.00</span>
+                                $25.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Popular Item</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <!-- Product price-->
+                                $40.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
+                        </div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Sale Item</h5>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">$50.00</span>
+                                $25.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Fancy Product</h5>
+                                <!-- Product price-->
+                                $120.00 - $280.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
+                        </div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Special Item</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <!-- Product price-->
+                                <span class="text-muted text-decoration-line-through">$20.00</span>
+                                $18.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Popular Item</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                <!-- Product price-->
+                                $40.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">InventaTech Pro &copy; E-Commerce 2024</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS Scripts -->
+    <script src="JS/Script.js"></script>
+    <script src="JS/JsCarousel.js"></script>
+</body>
+
+</html>
