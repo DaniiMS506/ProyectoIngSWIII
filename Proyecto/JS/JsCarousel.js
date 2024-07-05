@@ -82,10 +82,10 @@ ScrollReveal().reveal('.thumbnail', { origin: 'right' });
 /************************************ Read More ************************************/
 
 // Declaración de textos
-const rm1 = 'Nike Air Mag Exclusivas';
-const rm2 = 'Colaboracion entre Nike y Louis Vuitton';
-const rm3 = 'Air Jordan 1 Retro';
-const rm4 = 'Nike Air Force 1';
+const rm1 = 'En nuestra farmacia, nos dedicamos a ofrecer una amplia variedad de productos médicos y medicinas de alta calidad para satisfacer todas sus necesidades de salud y bienestar. Nos enorgullece ser su destino de confianza para encontrar soluciones efectivas y seguras para el cuidado personal.';
+const rm2 = 'Imagen de diversas inyecciones y píldoras, ilustrando la variedad de tratamientos disponibles en la farmacia para diferentes necesidades médicas.';
+const rm3 = 'Un farmacéutico utilizando un microscopio, destacando el rigor científico y la investigación detrás de la creación y mejora de medicamentos.';
+const rm4 = 'Persona trabajando en el desarrollo de medicamentos, mostrando el proceso cuidadoso y detallado para garantizar la eficacia y seguridad de los productos farmacéuticos.';
 
 // Función para mostrar SweetAlert
 function readmore(texto) {
