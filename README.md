@@ -26,7 +26,7 @@ El proyecto consiste en el desarrollo de un sitio web de comercio electronico.
 ## 
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=DaniiMS506&locale=es&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=true&order=2" height="150" alt="languages graph"  />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=DaniiMS506&locale=es&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=true&order=2" height="200" alt="languages graph"  />
 </div>
 
 
