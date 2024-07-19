@@ -96,4 +96,5 @@ CREATE TABLE Imagen (
     Nombre_producto VARCHAR(15) NOT NULL,
     FOREIGN KEY (Id_producto) REFERENCES Producto(Id_producto),
     FOREIGN KEY (Nombre_producto) REFERENCES Producto(Nombre_producto)
+    ALTER TABLE `imagen` ADD `Imagen` BLOB NULL DEFAULT NULL AFTER `Nombre_producto`;
 );
