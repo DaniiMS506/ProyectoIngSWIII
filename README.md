@@ -29,6 +29,8 @@ El proyecto consiste en el desarrollo de un sitio web de comercio electronico.
   <img src="https://github-readme-stats.vercel.app/api/top-langs?username=DaniiMS506&locale=es&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=true&order=2" height="200" alt="languages graph"  />
 </div>
 
+## Diagrama Base de Datos
+![Diagrama de Base de Datos](Documentación/Diagramas/Diagrama%20DB.jpeg "Diagrama de la Base de Datos")
 
 ##
 ###
