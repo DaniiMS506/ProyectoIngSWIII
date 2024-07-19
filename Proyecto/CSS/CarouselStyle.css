@@ -10,7 +10,7 @@ header a {
 /* carousel */
 .carousel {
     height: 92vh;
-    width: 99vw;
+    width: 100vw;
     overflow: hidden;
     position: relative;
     left: 50%;
