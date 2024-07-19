@@ -47,6 +47,7 @@ CREATE TABLE Producto (
     Fecha_expiracion DATE,
     Id_categoria INT,
     CONSTRAINT FK_Producto_Categoria FOREIGN KEY (Id_categoria) REFERENCES Categoria(Id_categoria)
+    ALTER TABLE `farmaciaproyecto`.`producto` DROP INDEX `Nombre_producto`, ADD INDEX `Nombre_producto` (`Nombre_producto`) USING BTREE;
 );
 
 /* Tabla Pedidos */
@@ -86,4 +87,13 @@ CREATE TABLE Inventario (
     Id_producto INT,
     Cantidad INT NOT NULL,
     CONSTRAINT FK_Inventario_Producto FOREIGN KEY (Id_producto) REFERENCES Producto(Id_producto)
+);
+
+/* Tabla Imagenes*/
+CREATE TABLE Imagen (
+    Id_imagen INT PRIMARY KEY AUTO_INCREMENT,
+    Id_producto INT NOT NULL,
+    Nombre_producto VARCHAR(15) NOT NULL,
+    FOREIGN KEY (Id_producto) REFERENCES Producto(Id_producto),
+    FOREIGN KEY (Nombre_producto) REFERENCES Producto(Nombre_producto)
 );
