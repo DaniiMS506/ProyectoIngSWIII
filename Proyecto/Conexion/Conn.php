@@ -3,7 +3,7 @@
 $server = "localhost";
 $user = "root";
 $pass = "";
-$db = "ProyectoIngSWII"; //MODIFICAR
+$db = "farmaciaproyecto";
 
 // Configuración de errores de MySQLi
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
