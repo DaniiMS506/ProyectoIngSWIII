@@ -76,3 +76,13 @@ VALUES
     (3, 200),
     (4, 10),
     (5, 75);
+
+-- Inserts para la tabla Imagen
+INSERT INTO Imagen
+    (Id_producto, Nombre_producto, Imagen)
+VALUES
+    (4, 'Electrolit', LOAD_FILE('C:/xampp/htdocs/ProyectoIngSWIII/Proyecto/IMG/Productos/Electrolit.jpg')),
+    (3, 'Inyección', LOAD_FILE('C:/xampp/htdocs/ProyectoIngSWIII/Proyecto/IMG/Productos/Inyeccion.jpg')),
+    (5, 'Mascarilla', LOAD_FILE('C:/xampp/htdocs/ProyectoIngSWIII/Proyecto/IMG/Productos/Mascarilla.avif')),
+    (1, 'Paracetamol', LOAD_FILE('C:/xampp/htdocs/ProyectoIngSWIII/Proyecto/IMG/Productos/Paracetamol.jpg')),
+    (2, 'Shampoo', LOAD_FILE('C:/xampp/htdocs/ProyectoIngSWIII/Proyecto/IMG/Productos/Shampoo.jpg'));

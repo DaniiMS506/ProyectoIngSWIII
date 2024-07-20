@@ -2,7 +2,6 @@
 CREATE DATABASE IF NOT EXISTS FarmaciaProyecto;
 USE FarmaciaProyecto;
 
-
 /* Tabla Roles */
 CREATE TABLE Rol (
     Id_rol INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -46,8 +45,8 @@ CREATE TABLE Producto (
     Precio DECIMAL(10, 2) NOT NULL,
     Fecha_expiracion DATE,
     Id_categoria INT,
-    CONSTRAINT FK_Producto_Categoria FOREIGN KEY (Id_categoria) REFERENCES Categoria(Id_categoria)
-    ALTER TABLE `farmaciaproyecto`.`producto` DROP INDEX `Nombre_producto`, ADD INDEX `Nombre_producto` (`Nombre_producto`) USING BTREE;
+    CONSTRAINT FK_Producto_Categoria FOREIGN KEY (Id_categoria) REFERENCES Categoria(Id_categoria),
+    INDEX Nombre_producto_idx (Nombre_producto)
 );
 
 /* Tabla Pedidos */
@@ -89,12 +88,12 @@ CREATE TABLE Inventario (
     CONSTRAINT FK_Inventario_Producto FOREIGN KEY (Id_producto) REFERENCES Producto(Id_producto)
 );
 
-/* Tabla Imagenes*/
+/* Tabla Imagenes */
 CREATE TABLE Imagen (
     Id_imagen INT PRIMARY KEY AUTO_INCREMENT,
     Id_producto INT NOT NULL,
     Nombre_producto VARCHAR(15) NOT NULL,
+    Imagen BLOB NULL DEFAULT NULL,
     FOREIGN KEY (Id_producto) REFERENCES Producto(Id_producto),
     FOREIGN KEY (Nombre_producto) REFERENCES Producto(Nombre_producto)
-    ALTER TABLE `imagen` ADD `Imagen` BLOB NULL DEFAULT NULL AFTER `Nombre_producto`;
 );
