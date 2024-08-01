@@ -44,8 +44,8 @@ VALUES
     ('Paracetamol', 'Analgesico y antipiretico', 5.99, '2025-06-30', 1),
     ('Shampoo', 'Para cabello seco', 8.50, '2024-12-31', 2),
     ('Inyección', 'Planificación', 3.25, '2024-10-15', 3),
-    ('Electrolit', 'Electrolit Uva', 299.99, NULL, 4),
-    ('Mascarilla', 'Mascarilla KN95', 12.99, NULL, 5);
+    ('Electrolit', 'Electrolit Uva', 299.99, '2024-10-15', 4),
+    ('Mascarilla', 'Mascarilla KN95', 12.99, '2024-10-15', 5);
 
 -- Inserts para la tabla Pedido
 INSERT INTO Pedido
@@ -56,6 +56,17 @@ VALUES
     (3, '2024-07-16 13:15:00', 'enviado', 30.00),
     (4, '2024-07-16 14:30:00', 'entregado', 15.25),
     (5, '2024-07-16 15:45:00', 'cancelado', 10.50);
+
+-- Inserts para la tabla Detalle de Pedido
+    INSERT INTO Detalle_Pedido (Id_pedido, Id_producto, Cantidad, Tipo_envio, Precio_unitario)
+VALUES
+    (1, 1, 2, 'estándar', 5.99),   
+    (1, 2, 1, 'express', 8.50),    
+    (2, 3, 5, 'estándar', 3.25),   
+    (2, 4, 1, 'express', 299.99),  
+    (3, 2, 3, 'express', 8.50),    
+    (4, 5, 2, 'estándar', 12.99),  
+    (5, 1, 1, 'estándar', 5.99);   
 
 -- Inserts para la tabla Proveedor
 INSERT INTO Proveedor
@@ -79,10 +90,10 @@ VALUES
 
 -- Inserts para la tabla Imagen
 INSERT INTO Imagen
-    (Id_producto, Nombre_producto, Imagen)
+    (Id_producto, Imagen)
 VALUES
-    (4, 'Electrolit', LOAD_FILE('C:/xampp/htdocs/ProyectoIngSWIII/Proyecto/IMG/Productos/Electrolit.jpg')),
-    (3, 'Inyección', LOAD_FILE('C:/xampp/htdocs/ProyectoIngSWIII/Proyecto/IMG/Productos/Inyeccion.jpg')),
-    (5, 'Mascarilla', LOAD_FILE('C:/xampp/htdocs/ProyectoIngSWIII/Proyecto/IMG/Productos/Mascarilla.avif')),
-    (1, 'Paracetamol', LOAD_FILE('C:/xampp/htdocs/ProyectoIngSWIII/Proyecto/IMG/Productos/Paracetamol.jpg')),
-    (2, 'Shampoo', LOAD_FILE('C:/xampp/htdocs/ProyectoIngSWIII/Proyecto/IMG/Productos/Shampoo.jpg'));
+    (4, LOAD_FILE('C:/xampp/htdocs/ProyectoIngSWIII/Proyecto/IMG/Productos/Electrolit.webp')),
+    (3, LOAD_FILE('C:/xampp/htdocs/ProyectoIngSWIII/Proyecto/IMG/Productos/Inyeccion.jpg')),
+    (5, LOAD_FILE('C:/xampp/htdocs/ProyectoIngSWIII/Proyecto/IMG/Productos/Mascarilla.avif')),
+    (1, LOAD_FILE('C:/xampp/htdocs/ProyectoIngSWIII/Proyecto/IMG/Productos/Paracetamol.avif')),
+    (2, LOAD_FILE('C:/xampp/htdocs/ProyectoIngSWIII/Proyecto/IMG/Productos/Shampoo.jpg'));

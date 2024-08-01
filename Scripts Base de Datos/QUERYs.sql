@@ -45,8 +45,7 @@ CREATE TABLE Producto (
     Precio DECIMAL(10, 2) NOT NULL,
     Fecha_expiracion DATE,
     Id_categoria INT,
-    CONSTRAINT FK_Producto_Categoria FOREIGN KEY (Id_categoria) REFERENCES Categoria(Id_categoria),
-    INDEX Nombre_producto_idx (Nombre_producto)
+    CONSTRAINT FK_Producto_Categoria FOREIGN KEY (Id_categoria) REFERENCES Categoria(Id_categoria)
 );
 
 /* Tabla Pedidos */
@@ -92,8 +91,6 @@ CREATE TABLE Inventario (
 CREATE TABLE Imagen (
     Id_imagen INT PRIMARY KEY AUTO_INCREMENT,
     Id_producto INT NOT NULL,
-    Nombre_producto VARCHAR(15) NOT NULL,
     Imagen BLOB NULL DEFAULT NULL,
-    FOREIGN KEY (Id_producto) REFERENCES Producto(Id_producto),
-    FOREIGN KEY (Nombre_producto) REFERENCES Producto(Nombre_producto)
+    FOREIGN KEY (Id_producto) REFERENCES Producto(Id_producto)
 );
