@@ -1,0 +1,29 @@
+.div-tabla {
+    margin: 1rem;
+}
+
+.formulario_registro {
+    padding: 45px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+#accordionBTN {
+    background-color: #333;
+    color: white;
+}
+
+.accordion-button:not(.collapsed)::after {
+    color: white;
+}
+
+.accordion-button.collapsed::after {
+    color: white;
+}
+
+#tituloProd {
+    text-align: center;
+    margin-top: 2.5rem;
+    margin-bottom: 1.2rem;
+}

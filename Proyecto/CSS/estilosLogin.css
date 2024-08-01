@@ -1,0 +1,242 @@
+:root {
+    --main-color: #185AB3;
+    --bg1: rgba(0, 128, 255, 0.5);
+    --bg2: #46A2FD;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-image: url(../IMG/bg-login.jpg);
+    image-rendering: -webkit-optimize-contrast;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+main {
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.caja_trasera {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(1, 93, 184, 0.832);
+
+}
+
+.caja_trasera div {
+    margin: 100px 40px;
+    color: white;
+    transition: all 500ms;
+}
+
+
+.caja_trasera div p,
+.caja_trasera button {
+    margin-top: 30px;
+}
+
+.caja_trasera div h3 {
+    font-weight: 400;
+    font-size: 26px;
+}
+
+.caja_trasera div p {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.caja_trasera button {
+    padding: 10px 40px;
+    border: 2px solid #fff;
+    font-size: 14px;
+    background: transparent;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    outline: none;
+    transition: all 300ms;
+}
+
+.caja_trasera button:hover {
+    background: #fff;
+    color: #46A2FD;
+}
+
+
+/*Formularios*/
+.container_login_registro {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    top: -185px;
+    left: 10px;
+
+    /*La transicion va despues del codigo JS*/
+    transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.container_login_registro form {
+    width: 100%;
+    padding: 80px 20px;
+    background: white;
+    position: absolute;
+    border-radius: 20px;
+}
+
+.container_login_registro form h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #46A2FD;
+}
+
+.container_login_registro form input,
+select {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background: #F2F2F2;
+    font-size: 16px;
+    outline: none;
+}
+
+.container_login_registro form button {
+    padding: 10px 40px;
+    margin-top: 40px;
+    border: none;
+    font-size: 14px;
+    background: #46A2FD;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    outline: none;
+}
+
+/*Cambio de forms*/
+.formulario_login {
+    opacity: 1;
+    display: block;
+}
+
+.formulario_registro {
+    display: none;
+}
+
+/*BTN'S*/
+#btn_Entrar,
+#btn_Registrarse {
+    display: inline-block;
+    transition: .5s ease;
+    color: aliceblue;
+    box-shadow: none;
+}
+
+#btn_Entrar:hover {
+    box-shadow: 0 0 0.5rem var(--main-color);
+    color: black;
+}
+
+#btn_Registrarse:hover {
+    box-shadow: 0 0 0.5rem var(--main-color);
+    color: black;
+}
+
+#selTipo {
+    margin: auto;
+    border-color: #185AB3;
+    border-radius: 5px;
+}
+
+#selTipo:hover {
+    box-shadow: 0 0 0.5rem var(--main-color);
+    color: black;
+}
+
+/*********************************************/
+
+/*Style Password Show/Hide*/
+.password-container {
+    position: relative;
+}
+
+.password-container input[type="password"] {
+    padding-right: 30px; /* Ajusta el espacio para el icono */
+}
+
+.password-container label {
+    position: absolute;
+    right: 10px; /* Ajusta la posición del icono según tu preferencia */
+    top: 50%;
+    transform: translateY(-40%);
+    cursor: pointer;
+}
+
+.password-container label i {
+    font-size: 18px; /* Ajusta el tamaño del icono según tu preferencia */
+}
+
+.password-container input[type="checkbox"] {
+    display: none; /* Oculta el checkbox estándar */
+}
+
+/*********************************************/
+
+/*Responsive*/
+@media screen and (max-width: 850px) {
+
+    main {
+        margin-top: 50px;
+    }
+
+    .caja_trasera {
+        max-width: 350px;
+        height: 300px;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .caja_trasera div {
+        margin: 0px;
+        position: absolute;
+    }
+
+    /*Formularios*/
+    .container_login_registro {
+        top: -10px;
+        left: -5px;
+        margin: auto;
+    }
+
+    .container_login_registro form {
+        position: relative;
+    }
+}
