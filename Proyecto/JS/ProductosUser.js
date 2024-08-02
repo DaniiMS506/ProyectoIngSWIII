@@ -83,7 +83,7 @@ $(document).ready(function () {
                 dataType: 'json',
                 success: async function (insertedRow) {
                     if (insertedRow.error) {
-                        swal("Alerta!", insertedRow.error, "warning");
+                        swal("Alerta!" + insertedRow, "warning");
                         return;
                     }
 

@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
+    <title>Inventario</title>
+
     <!--Web Icon-->
     <link rel='shortcut icon' type='image/png' href='../IMG/Icons/web-icon.png' />
 
@@ -37,41 +38,20 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
-
-        /* IMG */
-        .image-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
-            overflow: hidden;
-        }
-
-        .product-image {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain !important;
-        }
     </style>
 </head>
 
 <body>
     <header class="header">
-        <h1>TecnoFarma - Productos</h1>
+        <h1>TecnoFarma - Inventario</h1>
     </header>
 
     <nav class="navbar">
         <ul>
             <li><a href="../home.php" class="fa fa-home"> Inicio</a></li>
 
-            <li><a href="Productos.php" class="active fa fa-dropbox"> Productos</a></li>
-            <li><a href="Inventario.php" class="fa fa-archive"> Inventario</a></li>
+            <li><a href="Productos.php" class="fa fa-dropbox"> Productos</a></li>
+            <li><a href="Inventario.php" class="active fa fa-archive"> Inventario</a></li>
             <li><a href="Ventas.php" class="fa fa-usd"> Ventas</a></li>
             <li><a href="ReporteVentas.php" class="fa fa-bar-chart"> Reporte de ventas</a></li>
             <li><a href="Categorias.php" class="fa fa-list"> Categoria</a></li>
@@ -82,51 +62,36 @@
         </ul>
     </nav>
 
-    <!-- Registrar Producto -->
+    <!-- Registrar Inventario -->
     <div class="container">
         <div class="container_registro">
-            <!--Registro Producto-->
+            <!--Registro Inventario-->
             <form action="" class="form-control formulario_registro" id="form-control" method="post" enctype="multipart/form-data">
                 <!-- <form action="" class="form-control formulario_registro" id="form-control"> -->
 
                 <div class="accordion" id="accordionExample">
 
-                    <!--Accordion 1 Registrar Producto-->
+                    <!--Accordion 1 Registrar Inventario-->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="accordionBTN">
-                                Registrar Nuevo Producto
+                                Registrar Nuevo Inventario
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <h2>Registrar Producto</h2>
-                                <input class="form-control" type="text" name="" id="NombreProducto" placeholder="Nombre Producto">
+                                <h2>Registrar Inventario</h2>
 
                                 <?php
-                                require_once('../PHP/DropDownList/Logica_Productos.php');
+                                require_once('../PHP/DropDownList/Logica_Inventario.php');
                                 ?>
 
-                                <!-- Lista Tipos id=selTipo -->
-                                <?php echo $optionsSelTipo; ?>
+                                <!-- Lista Tipos id=selProducto -->
+                                <?php echo $optionsSelProducto; ?>
 
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label for="txtFecha">Fecha de la Compra:</label>
-                                        <input class="form-control" type="date" name="" id="txtFecha" placeholder="Fecha">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <label for="txtPrecio">Precio Total:</label>
-                                        <input class="form-control" type="text" name="" id="txtPrecio" placeholder="Precio Total ₡">
-                                    </div>
-                                </div>
+                                <input class="form-control" type="text" name="" id="txtCantidad" placeholder="Ingrese la Cantidad">
 
-                                <input class="form-control" type="text" name="" id="Descripcion" placeholder="Descripcion del Producto">
-
-                                <label for="ImagenProd">Agregue una Imagen:</label>
-                                <input type="file" class="form-control" name="ImagenProd" id="ImagenProd" accept="image/*">
-
-                                <button type="submit" class="btn btn-dark" id="btn_RegistrarProd" style="margin-top: 15px;">Agregar</button>
+                                <button type="submit" class="btn btn-dark" id="btn_RegistrarInventario" style="margin-top: 15px;">Agregar</button>
                             </div>
                         </div>
                     </div>
@@ -137,22 +102,18 @@
     </div>
     </div>
 
-    <h2 id="tituloProd">Tabla de Productos</h2>
+    <h2 id="tituloProd">Tabla de Inventario</h2>
 
     <div class="div-tabla">
         <table class="table table-dark" id="tabla">
             <thead>
                 <tr class="table-active">
                     <th>Nombre Producto</th>
-                    <th>Descripcion</th>
-                    <th>Precio</th>
-                    <th>Fecha Adicion</th>
-                    <th>Categoria</th>
-                    <th>Imagen</th>
+                    <th>Cantidad</th>
                 </tr>
             </thead>
 
-            <tbody id="tablaProductos">
+            <tbody id="tablaInventario">
             </tbody>
         </table>
     </div>
@@ -161,4 +122,4 @@
 </html>
 
 <!-- JS -->
-<script src="../JS/ProductosUser.js"></script>
+<script src="../JS/InventarioUser.js"></script>

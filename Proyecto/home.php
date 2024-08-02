@@ -76,8 +76,10 @@ if (!isset($_SESSION['Id_usuario'])) {
     <nav class="navbar">
         <ul>
             <li><a href="home.php" class="active fa fa-home"> Inicio</a></li>
+
             <li><a href="Pages/Productos.php" class="fa fa-dropbox"> Productos</a></li>
-            <li><a href="Pages/Ventas.php" class="fa fa-usd"> Venta</a></li>
+            <li><a href="Pages/Inventario.php" class="fa fa-archive"> Inventario</a></li>
+            <li><a href="Pages/Ventas.php" class="fa fa-usd"> Ventas</a></li>
             <li><a href="Pages/ReporteVentas.php" class="fa fa-bar-chart"> Reporte de ventas</a></li>
             <li><a href="Pages/NuevoCliente.php" class="fa fa-list"> Categoria</a></li>
 
