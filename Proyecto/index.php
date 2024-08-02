@@ -307,68 +307,7 @@
             });
         });
 
-
         // Btn Login
-        /*$('#btn_Login').on('click', async function(e) {
-            e.preventDefault();
-
-            const {
-                value: formValues
-            } = await Swal.fire({
-                title: "Login",
-                html: '<input id="swal-input1" class="swal2-input" placeholder="Email">' +
-                    '<input id="swal-input2" type="password" class="swal2-input" placeholder="Password">',
-                focusConfirm: false,
-                showCancelButton: true,
-                preConfirm: () => {
-                    return [
-                        document.getElementById('swal-input1').value,
-                        document.getElementById('swal-input2').value
-                    ];
-                }
-            });
-
-            if (formValues) {
-                const [email, password] = formValues;
-
-                try {
-                    const response = await fetch('PHP/ValidaLoginCliente.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            email,
-                            password
-                        })
-                    });
-
-                    const result = await response.json();
-
-                    if (result.success) {
-                        Swal.fire({
-                            title: 'Login Successful!',
-                            text: `Welcome ${result.data.Nombre} ${result.data.Apellido}`,
-                            icon: 'success'
-                        });
-                    } else {
-                        Swal.fire({
-                            title: 'Login Failed!',
-                            text: result.message,
-                            icon: 'error'
-                        });
-                    }
-                } catch (error) {
-                    console.error(error);
-                    Swal.fire({
-                        title: 'Error!',
-                        text: `Request failed: ${error}`,
-                        icon: 'error'
-                    });
-                }
-            }
-        });*/
-
         $('#btn_Login').on('click', async function(e) {
             e.preventDefault();
 
