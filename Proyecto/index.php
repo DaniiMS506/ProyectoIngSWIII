@@ -17,6 +17,8 @@
     <link href="CSS/StylesIndex.css" rel="stylesheet" />
     <link rel="stylesheet" href="CSS/CarouselStyle.css">
     <link rel="stylesheet" href="CSS/scrollBar.css">
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <!--SweetAlert 2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -40,7 +42,7 @@
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
-                            <li><a class="dropdown-item" href="#!">Cont&aacute;ctenos</a></li>
+                            <li><a class="dropdown-item" href="#!" id="Contactenos">Cont&aacute;ctenos</a></li>
                         </ul>
                     </li>
 
@@ -286,3 +288,18 @@
 </body>
 
 </html>
+
+<script>
+    $(document).ready(function() {
+        $('#Contactenos').on('click', async function(e) {
+            e.preventDefault();
+            //alert('OK');
+            Swal.fire({
+                title: "Contáctenos",
+                html: '<i class="fas fa-envelope"></i> Email: TecnoFarma@gmail.com<br><i class="fas fa-phone"></i> Teléfono: 123-456-7890',
+                icon: "info"
+            });
+        });
+
+    });
+</script>
