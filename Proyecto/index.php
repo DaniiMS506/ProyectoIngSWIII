@@ -28,22 +28,18 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="home">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="#!"> <img src="IMG/Logo.png" style="width: 115px; height: 95px;"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#Info">Informaci&oacute;n</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#Productos">Productos</a></li>
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
-                            <li><a class="dropdown-item" href="#!">Productos m&aacute;s vendidos</a></li>
                             <li><a class="dropdown-item" href="#!">Cont&aacute;ctenos</a></li>
                         </ul>
                     </li>
@@ -51,8 +47,7 @@
                     <!-- Login Button -->
                     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user fa-fw"></i> </a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user fa-fw"></i> </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#!">Login</a></li>
                                 <li>
@@ -222,191 +217,50 @@
                 <div class="time"></div>
             </div>
 
-            <!-- Cards -->
+
+
+            <!-- Cards PRODUCTOS-->
             <h2 class="h2" style="text-align: center;" id="Productos">Productos</h2>
             <hr>
+
+            <?php
+            require_once('Conexion/conn.php');
+
+            $sql = "SELECT p.Id_producto, p.Nombre_producto, p.Precio, i.Imagen 
+                    FROM Producto p 
+                    LEFT JOIN Imagen i ON p.Id_producto = i.Id_producto";
+            $result = $conn->query($sql);
+            ?>
+
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Fancy Product</h5>
-                                <!-- Product price-->
-                                <span id="precio">$40.00</span>
+                <?php while ($row = $result->fetch_assoc()) : ?>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="data:image/jpeg;base64,<?php echo base64_encode($row['Imagen']); ?>" alt="Product Image" />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder"><?php echo htmlspecialchars($row['Nombre_producto']); ?></h5>
+                                    <!-- Product price-->
+                                    <span id="precio">$<?php echo number_format($row['Precio'], 2); ?></span>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Special Item</h5>
-                                <!-- Product price-->
-                                <!-- <span class="text-muted text-decoration-line-through">$20.00</span> -->
-                                <span id="precio">$40.00</span>
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <button class="btn btn-outline-dark mt-auto add-to-cart" data-id="<?php echo $row['Id_producto']; ?>">Add to cart</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Sale Item</h5>
-                                <!-- Product price-->
-                                <!-- <span class="text-muted text-decoration-line-through">$50.00</span> -->
-                                <span id="precio">$40.00</span>
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Popular Item</h5>
-
-                                <!-- Product price-->
-                                <span id="precio">$40.00</span>
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Sale Item</h5>
-                                <!-- Product price-->
-                                <!-- <span class="text-muted text-decoration-line-through">$50.00</span> -->
-                                <span id="precio">$40.00</span>
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Fancy Product</h5>
-                                <!-- Product price-->
-                                <span id="precio">$40.00</span>
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Special Item</h5>
-
-                                <!-- Product price-->
-                                <!-- <span class="text-muted text-decoration-line-through">$20.00</span> -->
-                                <span id="precio">$40.00</span>
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Popular Item</h5>
-
-                                <!-- Product price-->
-                                <span id="precio">$40.00</span>
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <?php endwhile; ?>
             </div>
+
+            <?php $conn->close(); ?>
+
+
         </div>
     </section>
 
@@ -416,8 +270,7 @@
             <p class="m-0 text-center text-white">InventaTech Pro &copy; E-Commerce 2024</p>
         </div>
 
-        <div class="footer-iconTop"
-            style="display: flex; justify-content: flex-end; margin-right: 100px; font-size: 25px;">
+        <div class="footer-iconTop" style="display: flex; justify-content: flex-end; margin-right: 100px; font-size: 25px;">
             <abbr title="Volver al inicio"><a href="#home"><i class="fa fa-arrow-circle-up"></i></a></abbr>
         </div>
 
