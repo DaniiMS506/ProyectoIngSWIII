@@ -23,6 +23,56 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+    <style>
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .card {
+            width: 235px;
+            height: 380px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 120px;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            height: 80px;
+        }
+    </style>
 </head>
 
 <body>
@@ -229,43 +279,49 @@
             <!-- Cards PRODUCTOS-->
             <h2 class="h2" style="text-align: center;" id="Productos">Productos</h2>
             <hr>
+            <div class="cards-container">
 
-            <?php
-            require_once('Conexion/conn.php');
+                <?php
+                require_once('Conexion/conn.php');
 
-            $sql = "SELECT p.Id_producto, p.Nombre_producto, p.Precio, i.Imagen 
+                $sql = "SELECT p.Id_producto, p.Nombre_producto, p.Precio, p.Descripcion, i.Imagen 
                     FROM Producto p 
                     LEFT JOIN Imagen i ON p.Id_producto = i.Id_producto";
-            $result = $conn->query($sql);
-            ?>
+                $result = $conn->query($sql);
+                ?>
 
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <?php while ($row = $result->fetch_assoc()) : ?>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="data:image/jpeg;base64,<?php echo base64_encode($row['Imagen']); ?>" alt="Product Image" />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder"><?php echo htmlspecialchars($row['Nombre_producto']); ?></h5>
-                                    <!-- Product price-->
-                                    <span id="precio">$<?php echo number_format($row['Precio'], 2); ?></span>
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <?php while ($row = $result->fetch_assoc()) : ?>
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="data:image/jpeg;base64,<?php echo base64_encode($row['Imagen']); ?>" alt="Product Image" />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder"><?php echo htmlspecialchars($row['Nombre_producto']); ?></h5>
+                                        <!-- Product Description-->
+                                        <span id="descripcion"><?php echo htmlspecialchars($row['Descripcion'], 2); ?></span>
+                                        <br>
+                                        <!-- Product price-->
+                                        <h6 id="precio">$<?php echo number_format($row['Precio'], 2); ?></h6>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">
-                                    <button class="btn btn-outline-dark mt-auto add-to-cart" data-id="<?php echo $row['Id_producto']; ?>">Add to cart</button>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center">
+                                        <button class="btn btn-outline-dark mt-auto add-to-cart" data-id="<?php echo $row['Id_producto']; ?>">Add to cart</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                <?php endwhile; ?>
-            </div>
+                    <?php endwhile; ?>
+                </div>
 
-            <?php $conn->close(); ?>
+                <?php $conn->close(); ?>
+            </div>
+            <!-- Cards END PRODUCTOS-->
 
 
         </div>
@@ -275,6 +331,7 @@
     <footer class="py-5 bg-dark">
         <div class="container footer">
             <p class="m-0 text-center text-white">InventaTech Pro &copy; E-Commerce 2024</p>
+            <p class="text-center text-white"> By <span class="multiple-text1 text-white"> <!--Typed JS--></span> </p>
         </div>
 
         <div class="footer-iconTop" style="display: flex; justify-content: flex-end; margin-right: 100px; font-size: 25px;">
@@ -283,182 +340,20 @@
 
     </footer>
 
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <!--Scroll Reveal/Animations-->
     <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--Typed JS/Text Animations-->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
     <!-- JS Scripts -->
     <script src="JS/ScrollReveal.js"></script>
     <script src="JS/JsCarousel.js"></script>
+    <script src="JS/LandingPage.js"></script>
 </body>
 
 </html>
-
-<script>
-    $(document).ready(function() {
-        // Btn Contactenos
-        $('#Contactenos').on('click', async function(e) {
-            e.preventDefault();
-            //alert('OK');
-            Swal.fire({
-                title: "Contáctenos",
-                html: '<i class="fas fa-envelope"></i> Email: TecnoFarma@gmail.com<br><i class="fas fa-phone"></i> Teléfono: 123-456-7890',
-                icon: "info"
-            });
-        });
-
-        // Btn Login
-        $('#btn_Login').on('click', async function(e) {
-            e.preventDefault();
-
-            const {
-                value: formValues
-            } = await Swal.fire({
-                title: "Login",
-                html: '<input id="swal-input1" class="swal2-input" placeholder="Email">' +
-                    '<input id="swal-input2" type="password" class="swal2-input" placeholder="Password">',
-                focusConfirm: false,
-                showCancelButton: true,
-                preConfirm: () => {
-                    return [
-                        document.getElementById('swal-input1').value,
-                        document.getElementById('swal-input2').value
-                    ];
-                }
-            });
-
-            if (formValues) {
-                const [email, password] = formValues;
-
-                try {
-                    const response = await fetch('PHP/ValidaLoginCliente.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            email,
-                            password
-                        })
-                    });
-
-                    const result = await response.json();
-
-                    if (result.success) {
-                        Swal.fire({
-                            title: 'Login Exitoso!',
-                            text: `Bienvenido ${result.data.Nombre} ${result.data.Apellido}`,
-                            icon: 'success'
-                        });
-
-                        // Update the navbar with the user's name
-                        $('#navbarDropdownLogin').html(`<i class="fas fa-user fa-fw"></i> ${result.data.Nombre} ${result.data.Apellido}`);
-
-                        // Optionally, you might want to hide or disable the login and registration links
-                        $('#btn_Login').hide();
-                        $('#btn_Registrarse').hide();
-                    } else {
-                        Swal.fire({
-                            title: 'Login Failed!',
-                            text: result.message,
-                            icon: 'error'
-                        });
-                    }
-                } catch (error) {
-                    console.error(error);
-                    Swal.fire({
-                        title: 'Error!',
-                        text: `Request failed: ${error}`,
-                        icon: 'error'
-                    });
-                }
-            }
-        });
-
-
-
-
-
-        // Btn Registro btn_Registrarse
-        $('#btn_Registrarse').on('click', async function(e) {
-            e.preventDefault();
-
-            const {
-                value: formValues
-            } = await Swal.fire({
-                title: 'Registro',
-                html: `
-            <input id="swal-input1" class="swal2-input" placeholder="Nombre">
-            <input id="swal-input2" class="swal2-input" placeholder="Apellido">
-            <input id="swal-input3" class="swal2-input" placeholder="Email">
-            <input id="swal-input4" type="password" class="swal2-input" placeholder="Contraseña">
-            <input id="swal-input5" class="swal2-input" placeholder="Teléfono">
-            <input id="swal-input6" class="swal2-input" placeholder="Dirección">
-        `,
-                focusConfirm: false,
-                showCancelButton: true,
-                preConfirm: () => {
-                    return [
-                        document.getElementById('swal-input1').value,
-                        document.getElementById('swal-input2').value,
-                        document.getElementById('swal-input3').value,
-                        document.getElementById('swal-input4').value,
-                        document.getElementById('swal-input5').value,
-                        document.getElementById('swal-input6').value
-                    ];
-                }
-            });
-
-            if (formValues) {
-                const [nombre, apellido, email, password, telefono, direccion] = formValues;
-
-                try {
-                    const response = await fetch('PHP/Inserts/insertCliente.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            nombre,
-                            apellido,
-                            email,
-                            password,
-                            telefono,
-                            direccion
-                        })
-                    });
-
-                    // Asegúrate de que la respuesta sea JSON
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-
-                    const result = await response.json();
-
-                    if (result.success) {
-                        Swal.fire({
-                            title: 'Registro Exitoso!',
-                            text: result.message,
-                            icon: 'success'
-                        });
-                    } else {
-                        Swal.fire({
-                            title: 'Registro Fallido!',
-                            text: result.message,
-                            icon: 'error'
-                        });
-                    }
-                } catch (error) {
-                    console.error(error);
-                    Swal.fire({
-                        title: 'Error!',
-                        text: `Request failed: ${error.message}`,
-                        icon: 'error'
-                    });
-                }
-            }
-        });
-
-
-    }); //END
-</script>
