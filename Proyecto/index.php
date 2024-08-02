@@ -346,8 +346,8 @@
 
                     if (result.success) {
                         Swal.fire({
-                            title: 'Login Successful!',
-                            text: `Welcome ${result.data.Nombre} ${result.data.Apellido}`,
+                            title: 'Login Exitoso!',
+                            text: `Bienvenido ${result.data.Nombre} ${result.data.Apellido}`,
                             icon: 'success'
                         });
 
@@ -382,39 +382,83 @@
         // Btn Registro btn_Registrarse
         $('#btn_Registrarse').on('click', async function(e) {
             e.preventDefault();
-            //alert('OK');
 
-            Swal.fire({
-                title: "Login",
-                input: "text",
-                inputAttributes: {
-                    autocapitalize: "off"
-                },
+            const {
+                value: formValues
+            } = await Swal.fire({
+                title: 'Registro',
+                html: `
+            <input id="swal-input1" class="swal2-input" placeholder="Nombre">
+            <input id="swal-input2" class="swal2-input" placeholder="Apellido">
+            <input id="swal-input3" class="swal2-input" placeholder="Email">
+            <input id="swal-input4" type="password" class="swal2-input" placeholder="Contraseña">
+            <input id="swal-input5" class="swal2-input" placeholder="Teléfono">
+            <input id="swal-input6" class="swal2-input" placeholder="Dirección">
+        `,
+                focusConfirm: false,
                 showCancelButton: true,
-                confirmButtonText: "Look up",
-                showLoaderOnConfirm: true,
-                preConfirm: async (login) => {
-                    try {
-                        const githubUrl = `https://api.github.com/users/${login} `;
-                        const response = await fetch(githubUrl);
-                        if (!response.ok) {
-                            return Swal.showValidationMessage(`${JSON.stringify(await response.json())}`);
-                        }
-                        return response.json();
-                    } catch (error) {
-                        Swal.showValidationMessage(`Request failed: ${error}`);
-                    }
-                },
-                allowOutsideClick: () => !Swal.isLoading()
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire({
-                        title: `${result.value.login}'s avatar`,
-                        imageUrl: result.value.avatar_url
-                    });
+                preConfirm: () => {
+                    return [
+                        document.getElementById('swal-input1').value,
+                        document.getElementById('swal-input2').value,
+                        document.getElementById('swal-input3').value,
+                        document.getElementById('swal-input4').value,
+                        document.getElementById('swal-input5').value,
+                        document.getElementById('swal-input6').value
+                    ];
                 }
             });
+
+            if (formValues) {
+                const [nombre, apellido, email, password, telefono, direccion] = formValues;
+
+                try {
+                    const response = await fetch('PHP/Inserts/insertCliente.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            nombre,
+                            apellido,
+                            email,
+                            password,
+                            telefono,
+                            direccion
+                        })
+                    });
+
+                    // Asegúrate de que la respuesta sea JSON
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        Swal.fire({
+                            title: 'Registro Exitoso!',
+                            text: result.message,
+                            icon: 'success'
+                        });
+                    } else {
+                        Swal.fire({
+                            title: 'Registro Fallido!',
+                            text: result.message,
+                            icon: 'error'
+                        });
+                    }
+                } catch (error) {
+                    console.error(error);
+                    Swal.fire({
+                        title: 'Error!',
+                        text: `Request failed: ${error.message}`,
+                        icon: 'error'
+                    });
+                }
+            }
         });
 
-    });
+
+    }); //END
 </script>
