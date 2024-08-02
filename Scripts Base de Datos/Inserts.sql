@@ -19,13 +19,13 @@ VALUES
 
 -- Inserts para la tabla Cliente
 INSERT INTO Cliente
-    (Nombre, Apellido, Email, Telefono, Direccion)
+    (Nombre, Apellido, Email, Pass, Telefono, Direccion)
 VALUES
-    ('Carlos', 'Gonzalez', 'carlos@gmail.com', 123456789, 'Calle Principal 123'),
-    ('Sofia', 'Lopez', 'sofia@gmail.com', 987654321, 'Avenida Central 456'),
-    ('Javier', 'Hernandez', 'javier@gmail.com', 567890123, 'Paseo de las Flores 789'),
-    ('Laura', 'Diaz', 'laura@gmail.com', 345678901, 'Boulevard Norte 234'),
-    ('Diego', 'Rojas', 'diego@gmail.com', 789012345, 'Plaza Mayor 567');
+    ('Carlos', 'Gonzalez', 'carlos@gmail.com', 123, 123456789, 'Calle Principal 123'),
+    ('Sofia', 'Lopez', 'sofia@gmail.com', 123, 987654321, 'Avenida Central 456'),
+    ('Javier', 'Hernandez', 'javier@gmail.com', 123, 567890123, 'Paseo de las Flores 789'),
+    ('Laura', 'Diaz', 'laura@gmail.com', 123, 345678901, 'Boulevard Norte 234'),
+    ('Diego', 'Rojas', 'diego@gmail.com', 123, 789012345, 'Plaza Mayor 567');
 
 -- Inserts para la tabla Categoria
 INSERT INTO Categoria

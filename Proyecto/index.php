@@ -35,6 +35,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#Info">Informaci&oacute;n</a></li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -49,13 +50,17 @@
                     <!-- Login Button -->
                     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user fa-fw"></i> </a>
+                            <!-- <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user fa-fw"></i> </a> -->
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarDropdownLogin">
+                                <i class="fas fa-user fa-fw"></i> <span id="userName"></span>
+                            </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">Login</a></li>
+                                <li><a class="dropdown-item" href="#!" id="btn_Login">Login</a></li>
+                                <li><a class="dropdown-item" href="#!" id="btn_Registrarse">Registrarse</a></li>
                                 <li>
                                     <hr class="dropdown-divider" />
                                 </li>
-                                <li><a class="dropdown-item" href="#!">Logout</a></li>
+                                <li><a class="dropdown-item" href="PHP/logoutCliente.php">Logout</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -291,6 +296,7 @@
 
 <script>
     $(document).ready(function() {
+        // Btn Contactenos
         $('#Contactenos').on('click', async function(e) {
             e.preventDefault();
             //alert('OK');
@@ -298,6 +304,176 @@
                 title: "Contáctenos",
                 html: '<i class="fas fa-envelope"></i> Email: TecnoFarma@gmail.com<br><i class="fas fa-phone"></i> Teléfono: 123-456-7890',
                 icon: "info"
+            });
+        });
+
+
+        // Btn Login
+        /*$('#btn_Login').on('click', async function(e) {
+            e.preventDefault();
+
+            const {
+                value: formValues
+            } = await Swal.fire({
+                title: "Login",
+                html: '<input id="swal-input1" class="swal2-input" placeholder="Email">' +
+                    '<input id="swal-input2" type="password" class="swal2-input" placeholder="Password">',
+                focusConfirm: false,
+                showCancelButton: true,
+                preConfirm: () => {
+                    return [
+                        document.getElementById('swal-input1').value,
+                        document.getElementById('swal-input2').value
+                    ];
+                }
+            });
+
+            if (formValues) {
+                const [email, password] = formValues;
+
+                try {
+                    const response = await fetch('PHP/ValidaLoginCliente.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email,
+                            password
+                        })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        Swal.fire({
+                            title: 'Login Successful!',
+                            text: `Welcome ${result.data.Nombre} ${result.data.Apellido}`,
+                            icon: 'success'
+                        });
+                    } else {
+                        Swal.fire({
+                            title: 'Login Failed!',
+                            text: result.message,
+                            icon: 'error'
+                        });
+                    }
+                } catch (error) {
+                    console.error(error);
+                    Swal.fire({
+                        title: 'Error!',
+                        text: `Request failed: ${error}`,
+                        icon: 'error'
+                    });
+                }
+            }
+        });*/
+
+        $('#btn_Login').on('click', async function(e) {
+            e.preventDefault();
+
+            const {
+                value: formValues
+            } = await Swal.fire({
+                title: "Login",
+                html: '<input id="swal-input1" class="swal2-input" placeholder="Email">' +
+                    '<input id="swal-input2" type="password" class="swal2-input" placeholder="Password">',
+                focusConfirm: false,
+                showCancelButton: true,
+                preConfirm: () => {
+                    return [
+                        document.getElementById('swal-input1').value,
+                        document.getElementById('swal-input2').value
+                    ];
+                }
+            });
+
+            if (formValues) {
+                const [email, password] = formValues;
+
+                try {
+                    const response = await fetch('PHP/ValidaLoginCliente.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email,
+                            password
+                        })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        Swal.fire({
+                            title: 'Login Successful!',
+                            text: `Welcome ${result.data.Nombre} ${result.data.Apellido}`,
+                            icon: 'success'
+                        });
+
+                        // Update the navbar with the user's name
+                        $('#navbarDropdownLogin').html(`<i class="fas fa-user fa-fw"></i> ${result.data.Nombre} ${result.data.Apellido}`);
+
+                        // Optionally, you might want to hide or disable the login and registration links
+                        $('#btn_Login').hide();
+                        $('#btn_Registrarse').hide();
+                    } else {
+                        Swal.fire({
+                            title: 'Login Failed!',
+                            text: result.message,
+                            icon: 'error'
+                        });
+                    }
+                } catch (error) {
+                    console.error(error);
+                    Swal.fire({
+                        title: 'Error!',
+                        text: `Request failed: ${error}`,
+                        icon: 'error'
+                    });
+                }
+            }
+        });
+
+
+
+
+
+        // Btn Registro btn_Registrarse
+        $('#btn_Registrarse').on('click', async function(e) {
+            e.preventDefault();
+            //alert('OK');
+
+            Swal.fire({
+                title: "Login",
+                input: "text",
+                inputAttributes: {
+                    autocapitalize: "off"
+                },
+                showCancelButton: true,
+                confirmButtonText: "Look up",
+                showLoaderOnConfirm: true,
+                preConfirm: async (login) => {
+                    try {
+                        const githubUrl = `https://api.github.com/users/${login} `;
+                        const response = await fetch(githubUrl);
+                        if (!response.ok) {
+                            return Swal.showValidationMessage(`${JSON.stringify(await response.json())}`);
+                        }
+                        return response.json();
+                    } catch (error) {
+                        Swal.showValidationMessage(`Request failed: ${error}`);
+                    }
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: `${result.value.login}'s avatar`,
+                        imageUrl: result.value.avatar_url
+                    });
+                }
             });
         });
 

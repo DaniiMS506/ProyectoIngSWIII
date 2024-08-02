@@ -26,6 +26,7 @@ CREATE TABLE Cliente (
     Nombre VARCHAR(10) NOT NULL,
     Apellido VARCHAR(25) NOT NULL,
     Email VARCHAR(25),
+    Pass VARCHAR(25),
     Telefono INT NOT NULL,
     Direccion VARCHAR(25) NOT NULL
 );
