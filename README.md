@@ -30,7 +30,7 @@ El proyecto consiste en el desarrollo de un sitio web de comercio electronico.
 </div>
 
 ## Diagrama Base de Datos
-![Diagrama de Base de Datos](Documentación/Diagramas/Diagrama%20DB.jpeg "Diagrama de la Base de Datos")
+![Diagrama de Base de Datos](Documentación/Diagramas/Diagrama%20DB.png "Diagrama de la Base de Datos")
 
 ##
 ###
