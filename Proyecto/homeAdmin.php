@@ -76,6 +76,7 @@ if (!isset($_SESSION['Id_usuario'])) {
             <li><a href="homeAdmin.php" class="active fa fa-home"> Inicio</a></li>
 
             <li><a href="PagesAdmin/ProductosAdmin.php" class="fa fa-dropbox"> Productos</a></li>
+            <li><a href="PagesAdmin/InventarioAdmin.php" class="fa fa-archive"> Inventario</a></li>
 
             <!-- <li><a href="PagesAdmin/VentasAdmin.php" class="fa fa-usd"> Ventas</a></li>
             <li><a href="PagesAdmin/ReporteVentasAdmin.php" class="fa fa-bar-chart"> Reporte de ventas</a></li>
@@ -83,7 +84,7 @@ if (!isset($_SESSION['Id_usuario'])) {
             <li><a href="PagesAdmin/AdministrarClientesAdmin.php" class="fa fa-users"> Administrar Clientes</a></li>
             <li><a href="PagesAdmin/OtrosAdmin.php" class="fa fa-file-text"> Otros</a></li> -->
 
-            <li><a href="/Proyecto/PHP/logout.php" class="fa fa-sign-out"> Logout</a></li>
+            <li><a href="/ProyectoIngSWIII/Proyecto/PHP/logout.php" class="fa fa-sign-out"> Logout</a></li>
 
             <div class="animation start-home"></div>
         </ul>
