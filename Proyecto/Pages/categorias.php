@@ -73,6 +73,8 @@
             <li><a href="Productos.php" class="fa fa-dropbox"> Productos</a></li>
             <li><a href="Inventario.php" class="fa fa-archive"> Inventario</a></li>
             <li><a href="Categorias.php" class="active fa fa-list"> Categorias</a></li>
+            <li><a href="Pedidos.php" class="fa fa-book"> Pedidos de Clientes</a></li>
+            <li><a href="Detalle_pedido.php" class="fa fa-clipboard"> Detalle de Pedidos de Clientes</a></li>
 
             <li><a href="../PHP/logout.php" class="fa fa-sign-out"> Logout</a></li>
 

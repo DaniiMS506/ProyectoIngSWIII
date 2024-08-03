@@ -80,6 +80,8 @@ if (!isset($_SESSION['Id_usuario'])) {
             <li><a href="Pages/Productos.php" class="fa fa-dropbox"> Productos</a></li>
             <li><a href="Pages/Inventario.php" class="fa fa-archive"> Inventario</a></li>
             <li><a href="Pages/categorias.php" class="fa fa-list"> Categoria</a></li>
+            <li><a href="Pages/Pedidos.php" class="fa fa-book"> Pedidos de Clientes</a></li>
+            <li><a href="Pages/Detalle_pedido.php" class="fa fa-clipboard"> Detalle de Pedidos de Clientes</a></li>
 
 
             <li><a href="../Proyecto/PHP/logout.php" class="fa fa-sign-out"> Logout</a></li>
