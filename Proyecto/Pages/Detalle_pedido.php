@@ -117,5 +117,5 @@
     </div>
 </body>
 <!-- JS -->
-<script src="../JS_SUPERVISOR/detalle_pedidos.js"></script>
+<script src="../JS/detalle_pedidos.js"></script>
 </html>
