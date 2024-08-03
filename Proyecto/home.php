@@ -81,6 +81,7 @@ if (!isset($_SESSION['Id_usuario'])) {
             <li><a href="Pages/Inventario.php" class="fa fa-archive"> Inventario</a></li>
             <li><a href="Pages/categorias.php" class="fa fa-list"> Categoria</a></li>
 
+
             <li><a href="../Proyecto/PHP/logout.php" class="fa fa-sign-out"> Logout</a></li>
             <div class="animation start-home"></div>
         </ul>
