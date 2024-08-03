@@ -113,5 +113,5 @@
     </div>
 </body>
 <!-- JS -->
-<script src="../JS_SUPERVISOR/pedidos.js"></script>
+<script src="../JS/pedidos.js"></script>
 </html>
