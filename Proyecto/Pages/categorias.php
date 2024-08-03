@@ -70,9 +70,9 @@
         <ul>
             <li><a href="../home.php" class="fa fa-home"> Inicio</a></li>
 
-            <li><a href="Productos.php" class="active fa fa-dropbox"> Productos</a></li>
+            <li><a href="Productos.php" class="fa fa-dropbox"> Productos</a></li>
             <li><a href="Inventario.php" class="fa fa-archive"> Inventario</a></li>
-            <li><a href="Categorias.php" class="fa fa-list"> Categoria</a></li>
+            <li><a href="Categorias.php" class="active fa fa-list"> Categorias</a></li>
 
             <li><a href="../PHP/logout.php" class="fa fa-sign-out"> Logout</a></li>
 
@@ -93,38 +93,21 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="accordionBTN">
-                                Registrar Nuevo Producto
+                                Registrar Nueva Categoria
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <h2>Registrar Producto</h2>
-                                <input class="form-control" type="text" name="" id="NombreProducto" placeholder="Nombre Producto">
+                                <h2>Registrar Categoria</h2>
 
-                                <?php
-                                require_once('../PHP/DropDownList/Logica_Productos.php');
-                                ?>
+                                <input class="form-control" type="text" name="" id="NombreCategoria" placeholder="Nombre Categoria">
 
-                                <!-- Lista Tipos id=selTipo -->
-                                <?php echo $optionsSelTipo; ?>
+                                <input class="form-control" type="text" name="" id="descripcion" placeholder="Descripcion de la categoria">
 
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label for="txtFecha">Fecha de la Compra:</label>
-                                        <input class="form-control" type="date" name="" id="txtFecha" placeholder="Fecha">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <label for="txtPrecio">Precio Total:</label>
-                                        <input class="form-control" type="text" name="" id="txtPrecio" placeholder="Precio Total ₡">
-                                    </div>
-                                </div>
+                                <!-- <label for="ImagenProd">Agregue una Imagen:</label>
+                                <input type="file" class="form-control" name="ImagenProd" id="ImagenProd" accept="image/*"> -->
 
-                                <input class="form-control" type="text" name="" id="Descripcion" placeholder="Descripcion del Producto">
-
-                                <label for="ImagenProd">Agregue una Imagen:</label>
-                                <input type="file" class="form-control" name="ImagenProd" id="ImagenProd" accept="image/*">
-
-                                <button type="submit" class="btn btn-dark" id="btn_RegistrarProd" style="margin-top: 15px;">Agregar</button>
+                                <button type="submit" class="btn btn-dark" id="btn_RegistrarCat" style="margin-top: 15px;">Agregar</button>
                             </div>
                         </div>
                     </div>
@@ -135,22 +118,19 @@
     </div>
     </div>
 
-    <h2 id="tituloProd">Tabla de Productos</h2>
+    <h2 id="tituloProd">Tabla de Categorias</h2>
 
     <div class="div-tabla">
         <table class="table table-dark" id="tabla">
             <thead>
                 <tr class="table-active">
-                    <th>Nombre Producto</th>
+                    <th>Nombre Categoria</th>
                     <th>Descripcion</th>
-                    <th>Precio</th>
-                    <th>Fecha Adicion</th>
-                    <th>Categoria</th>
-                    <th>Imagen</th>
                 </tr>
             </thead>
 
-            <tbody id="tablaProductos">
+            <tbody id="tablaCategorias">
+                <!-- aqui van los datos -->
             </tbody>
         </table>
     </div>
@@ -159,4 +139,4 @@
 </html>
 
 <!-- JS -->
-<script src="../JS/ProductosUser.js"></script>
+<script src="../JS/CategoriasUser.js"></script>

@@ -52,8 +52,6 @@
 
             <li><a href="Productos.php" class="fa fa-dropbox"> Productos</a></li>
             <li><a href="Inventario.php" class="active fa fa-archive"> Inventario</a></li>
-            <li><a href="Ventas.php" class="fa fa-usd"> Ventas</a></li>
-            <li><a href="ReporteVentas.php" class="fa fa-bar-chart"> Reporte de ventas</a></li>
             <li><a href="Categorias.php" class="fa fa-list"> Categoria</a></li>
 
             <li><a href="../PHP/logout.php" class="fa fa-sign-out"> Logout</a></li>
