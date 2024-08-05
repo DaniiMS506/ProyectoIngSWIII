@@ -106,7 +106,7 @@
                                 <input class="form-control" type="text" name="" id="NombreProducto" placeholder="Nombre Producto">
 
                                 <?php
-                                require_once('../PHP/DropDownList/Logica_Productos.php');
+                                require_once('../PHP/DropDownList/Logica_CategoriaProductos.php');
                                 ?>
 
                                 <!-- Lista Tipos id=selTipo -->
