@@ -35,7 +35,7 @@
 
 <body>
     <header class="header">
-        <h1>ING SW II - Pedidos de clientes - Administrador</h1>
+        <h1>ING SW II - Pedidos de clientes <i class="fa fa-user-secret"></i> </h1>
     </header>
 
     <nav class="navbar">
@@ -43,8 +43,11 @@
             <li><a href="../homeAdmin.php" class="fa fa-home"> Inicio</a></li>
             <li><a href="ProductosAdmin.php" class="fa fa-dropbox"> Productos</a></li>
             <li><a href="InventarioAdmin.php" class="fa fa-archive"> Inventario</a></li>
+
             <li><a href="PedidosAdmin.php" class="active fa fa-book"> Pedidos de Clientes</a></li>
             <li><a href="Detalle_pedidoAdmin.php" class="fa fa-clipboard"> Detalle de Pedidos de Clientes</a></li>
+
+            <li><a href="../PHP/logout.php" class="fa fa-sign-out"> Logout</a></li>
 
             <div class="animation start-home"></div>
         </ul>
@@ -69,23 +72,23 @@
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     <h2>Pedidos</h2>
-                            
+
                                     <label for="sel_idCliente">Seleccione un Usuario:</label>
-                                        <select class="form-select" name="" id="sel_idCliente" style="margin-bottom: 10px;">
-                                            <option value="" selected>Seleccione un Usuario</option>
+                                    <select class="form-select" name="" id="sel_idCliente" style="margin-bottom: 10px;">
+                                        <option value="" selected>Seleccione un Usuario</option>
                                     </select>
 
 
                                     <label for="FechaPedido">Fecha del pedido:</label>
                                     <input class="form-control" type="datetime-local" name="" id="FechaPedido" placeholder="Fecha del pedido" style="margin-bottom: 10px;">
-                                        <select class="form-control" id="estado_pedido" name="estado_pedido" style="margin-bottom: 10px;">
-                                            <option value="">Estado del pedido</option>
-                                            <option value="pendiente">Pendiente</option>
-                                            <option value="procesado">Procesado</option>
-                                            <option value="entregado">Entregado</option>
-                                            <option value="cancelado">Cancelado</option>
-                                            <option value="enviado">Enviado</option>
-                                        </select>
+                                    <select class="form-control" id="estado_pedido" name="estado_pedido" style="margin-bottom: 10px;">
+                                        <option value="">Estado del pedido</option>
+                                        <option value="pendiente">Pendiente</option>
+                                        <option value="procesado">Procesado</option>
+                                        <option value="entregado">Entregado</option>
+                                        <option value="cancelado">Cancelado</option>
+                                        <option value="enviado">Enviado</option>
+                                    </select>
                                     <input class="form-control" type="int" name="" id="total_pedido" placeholder="Total del pedido" style="margin-bottom: 10px;">
                                     <button type="submit" class="btn btn-dark" id="btn_RegistrarPedido" style="margin-top: 15px;">Agregar</button>
                                     <button type="submit" class="btn btn-dark" id="btn_Update" style="margin-top: 15px; display: none;">Actualizar campos</button>

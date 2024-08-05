@@ -73,12 +73,10 @@
             <li><a href="../homeAdmin.php" class="fa fa-home"> Inicio</a></li>
 
             <li><a href="ProductosAdmin.php" class="active fa fa-dropbox"> Productos</a></li>
-
             <li><a href="InventarioAdmin.php" class="fa fa-archive"> Inventario</a></li>
 
-            <!-- <li><a href="Ventas.php" class="fa fa-usd"> Ventas</a></li>
-            <li><a href="ReporteVentas.php" class="fa fa-bar-chart"> Reporte de ventas</a></li>
-            <li><a href="Categorias.php" class="fa fa-list"> Categoria</a></li> -->
+            <li><a href="PedidosAdmin.php" class="fa fa-book"> Pedidos de Clientes</a></li>
+            <li><a href="Detalle_pedidoAdmin.php" class="fa fa-clipboard"> Detalle de Pedidos de Clientes</a></li>
 
             <li><a href="../PHP/logout.php" class="fa fa-sign-out"> Logout</a></li>
 

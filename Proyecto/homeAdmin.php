@@ -77,6 +77,8 @@ if (!isset($_SESSION['Id_usuario'])) {
 
             <li><a href="PagesAdmin/ProductosAdmin.php" class="fa fa-dropbox"> Productos</a></li>
             <li><a href="PagesAdmin/InventarioAdmin.php" class="fa fa-archive"> Inventario</a></li>
+            <li><a href="PagesAdmin/PedidosAdmin.php" class="fa fa-book"> Pedidos de Clientes</a></li>
+            <li><a href="PagesAdmin/Detalle_pedidoAdmin.php" class="fa fa-clipboard"> Detalle de Pedidos de Clientes</a></li>
 
 
             <li><a href="/ProyectoIngSWIII/Proyecto/PHP/logout.php" class="fa fa-sign-out"> Logout</a></li>

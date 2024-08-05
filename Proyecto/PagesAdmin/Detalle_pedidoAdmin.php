@@ -29,12 +29,12 @@
 
     <!-- Incluye SweetAlert2 JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+
 </head>
 
 <body>
     <header class="header">
-        <h1>ING SW II - Detalle de Pedidos de clientes</h1>
+        <h1>ING SW II - Detalle de Pedidos de clientes <i class="fa fa-user-secret"></i></h1>
     </header>
 
     <nav class="navbar">
@@ -42,9 +42,12 @@
             <li><a href="../homeAdmin.php" class="fa fa-home"> Inicio</a></li>
             <li><a href="ProductosAdmin.php" class="fa fa-dropbox"> Productos</a></li>
             <li><a href="InventarioAdmin.php" class="fa fa-archive"> Inventario</a></li>
+
             <li><a href="PedidosAdmin.php" class="fa fa-book"> Pedidos de Clientes</a></li>
             <li><a href="Detalle_pedidoAdmin.php" class="active fa fa-clipboard"> Detalle de Pedidos de Clientes</a></li>
-            
+
+            <li><a href="../PHP/logout.php" class="fa fa-sign-out"> Logout</a></li>
+
             <div class="animation start-home"></div>
         </ul>
     </nav>
@@ -68,26 +71,26 @@
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     <h2>Pedidos</h2>
-                            
+
                                     <label for="sel_idPedido">Seleccione un Pedido:</label>
-                                        <select class="form-select" name="" id="sel_idPedido" style="margin-bottom: 10px;">
-                                            <option value="" selected>Seleccione un Pedido</option>
+                                    <select class="form-select" name="" id="sel_idPedido" style="margin-bottom: 10px;">
+                                        <option value="" selected>Seleccione un Pedido</option>
                                     </select>
 
                                     <label for="sel_idProducto">Seleccione un Producto:</label>
-                                        <select class="form-select" name="" id="sel_idProducto" style="margin-bottom: 10px;">
-                                            <option value="" selected>Seleccione un Producto</option>
+                                    <select class="form-select" name="" id="sel_idProducto" style="margin-bottom: 10px;">
+                                        <option value="" selected>Seleccione un Producto</option>
                                     </select>
-                                    
+
                                     <input class="form-control" type="number" name="" id="cantidad" placeholder="Cantidad" style="margin-bottom: 10px;">
-                                        
+
                                     <select class="form-control" id="tipo_envio" name="tipo_envio" style="margin-bottom: 10px;">
                                         <option value="">Tipo de envio</option>
                                         <option value="Express">Express</option>
                                         <option value="Tienda">En tienda</option>
                                     </select>
                                     <input class="form-control" type="int" name="" id="precio_unitario" placeholder="Precio Unitario" style="margin-bottom: 10px;">
-                                
+
                                     <button type="submit" class="btn btn-dark" id="btn_RegistrarDetalle_Pedido" style="margin-top: 15px;">Agregar</button>
                                     <button type="submit" class="btn btn-dark" id="btn_Update" style="margin-top: 15px; display: none;">Actualizar campos</button>
                                 </div>
@@ -121,4 +124,5 @@
 </body>
 <!-- JS -->
 <script src="../JS/detalle_pedidoAdmin.js"></script>
+
 </html>

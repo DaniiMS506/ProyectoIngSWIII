@@ -53,6 +53,9 @@
             <li><a href="ProductosAdmin.php" class="fa fa-dropbox"> Productos</a></li>
             <li><a href="InventarioAdmin.php" class="active fa fa-archive"> Inventario</a></li>
 
+            <li><a href="PedidosAdmin.php" class="fa fa-book"> Pedidos de Clientes</a></li>
+            <li><a href="Detalle_pedidoAdmin.php" class="fa fa-clipboard"> Detalle de Pedidos de Clientes</a></li>
+
             <li><a href="../PHP/logout.php" class="fa fa-sign-out"> Logout</a></li>
 
             <div class="animation start-home"></div>
