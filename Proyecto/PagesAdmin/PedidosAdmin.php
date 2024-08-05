@@ -35,7 +35,7 @@
 
 <body>
     <header class="header">
-        <h1>ING SW II - Pedidos de clientes <i class="fa fa-user-secret"></i> </h1>
+        <h1>TecnoFarma - Pedidos de clientes <i class="fa fa-user-secret"></i> </h1>
     </header>
 
     <nav class="navbar">

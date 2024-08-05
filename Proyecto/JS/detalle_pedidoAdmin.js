@@ -1,19 +1,19 @@
-$(document).ready(function() {
+$(document).ready(function () {
     // Inicializar con la página 1
     cargarTabla(1);
 
     // Función para cargar datos de la tabla
     function cargarTabla(pagina) {
         $.ajax({
-            url: '../PHP/DropDownList/TablaDetallePedidoAdmin.php',
+            url: '../PHP/Consultas/TablasAdmin/TablaDetallePedidoAdmin.php',
             method: 'POST',
             data: {
                 pagina: pagina
             }, // Enviar número de página
-            success: function(dataresponse, statustext, response) {
+            success: function (dataresponse, statustext, response) {
                 document.getElementById("tablaDetalle_Pedidos").innerHTML = dataresponse;
             },
-            error: function(request, errorcode, errortext) {
+            error: function (request, errorcode, errortext) {
                 swal("Alerta!", request, "warning");
                 console.log(errorcode);
                 console.log(errortext);
@@ -22,7 +22,7 @@ $(document).ready(function() {
     }
 
     // Manejar eventos de cambio de página
-    $(document).on("click", ".pagination-link", function() {
+    $(document).on("click", ".pagination-link-pedidos", function () {
         var pagina = $(this).data("pagina");
         cargarTabla(pagina);
     });
@@ -31,51 +31,65 @@ $(document).ready(function() {
 
 ////////////////////////////////Obtener Pedido///////////////////////////////
 
-$(document).ready(function() {
+$(document).ready(function () {
     $.ajax({
-        url: '../PHP/Consultas/obtener_pedido.php',
+        url: '../PHP/DropDownList/obtener_pedido.php',
         type: 'GET',
         dataType: 'json',
-        success: function(data) {
+        success: function (data) {
             var select = $('#sel_idPedido');
             select.empty();
             select.append('<option value="" selected>Seleccione un Pedido</option>');
-            $.each(data, function(index, pedido) {
+            $.each(data, function (index, pedido) {
                 select.append('<option value="' + pedido.Id_pedido + '">' + pedido.Id_pedido + '</option>');
             });
-            
+
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error('Error al obtener los pedidos:', error);
         }
     });
 });
 ////////////////////////////////Obtener NOMBRE del Producto///////////////////////////////
 
-$(document).ready(function() {
+$(document).ready(function () {
     $.ajax({
-        url: '../PHP/Consultas/obtener_producto.php',
+        url: '../PHP/DropDownList/obtener_producto.php',
         type: 'GET',
         dataType: 'json',
-        success: function(data) {
+        success: function (data) {
             var select = $('#sel_idProducto');
             select.empty();
             select.append('<option value="" selected>Seleccione un Producto</option>');
-            $.each(data, function(index, producto) {
+            $.each(data, function (index, producto) {
                 select.append('<option value="' + producto.Id_producto + '">' + producto.Nombre_producto + '</option>');
             });
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error('Error al obtener los productos:', error);
         }
+    });
+
+
+    $('#sel_idProducto').change(function () {
+        var precio = parseFloat($('#sel_idProducto option:selected').data('precio')) || 0;
+        $('#total').val(precio.toFixed(2));
+    });
+
+    $('#cantidad').on('input', function () {
+        var precio = parseFloat($('#sel_idProducto option:selected').data('precio')) || 0;
+        var cantidad = parseInt($('#cantidad').val()) || 0;
+        var total = precio * cantidad;
+
+        $('#total').val(total.toFixed(2));
     });
 });
 
 ////////Insertar nuevo detalle de pedido/////////
 
-$(document).ready(function() {
+$(document).ready(function () {
     // Evento de click para el botón de inserción
-    $('#btn_RegistrarDetalle_Pedido').on('click', function(e) {
+    $('#btn_RegistrarDetalle_Pedido').on('click', function (e) {
         e.preventDefault();
 
         // Obtener datos del formulario de inserción
@@ -83,10 +97,10 @@ $(document).ready(function() {
         var Id_producto = $('#sel_idProducto').val();
         var cantidad = $('#cantidad').val();
         var tipo_envio = $('#tipo_envio').val();
-        var precio_unitario = $('#precio_unitario').val();
-        
+        var total = $('#total').val();
+
         // Validaciones
-        if (Id_pedido === '' || Id_producto === '' || cantidad === '' || tipo_envio === '' || precio_unitario === '') {
+        if (Id_pedido === '' || Id_producto === '' || cantidad === '' || tipo_envio === '' || total === '') {
             Swal.fire({
                 title: 'Alerta!',
                 text: 'Por favor, complete todos los campos!',
@@ -104,9 +118,9 @@ $(document).ready(function() {
                 Id_producto: Id_producto,
                 cantidad: cantidad,
                 tipo_envio: tipo_envio,
-                precio_unitario: precio_unitario
+                total: total
             },
-            success: function(response) {
+            success: function (response) {
                 console.log(response);
                 Swal.fire({
                     title: 'Pedido Registrado!',
@@ -118,7 +132,7 @@ $(document).ready(function() {
                     window.location.reload();
                 }, 2000);
             },
-            error: function(error) {
+            error: function (error) {
                 console.log(error);
                 Swal.fire({
                     title: 'Error en la inserción de datos!',
@@ -134,7 +148,7 @@ $(document).ready(function() {
 
 ////////////DELETE///////////////
 //Manejar eliminacion del producto
-$(document).on('click', '.eliminar', function(event) {
+$(document).on('click', '.eliminar', function (event) {
     event.preventDefault();
     var Id_detalle = $(this).closest('tr').find('td:eq(0)').text();
     eliminarDetallePedido(Id_detalle);
@@ -157,7 +171,7 @@ function eliminarDetallePedido(Id_detalle) {
                 data: {
                     Id_detalle: Id_detalle
                 },
-                success: function(response) {
+                success: function (response) {
                     Swal.fire({
                         icon: 'success',
                         title: '¡Eliminado!',
@@ -167,11 +181,11 @@ function eliminarDetallePedido(Id_detalle) {
                     });
 
                     // Recargar la página después de 1 segundo
-                    setTimeout(function() {
+                    setTimeout(function () {
                         location.reload();
                     }, 1000);
                 },
-                error: function() {
+                error: function () {
                     Swal.fire({
                         icon: 'error',
                         title: 'Error',
@@ -190,7 +204,7 @@ function eliminarDetallePedido(Id_detalle) {
 var editando = false;
 
 // Se ejecuta cuando se le da click al botón de editar, y se ejecuta la función
-$(document).on('click', '.editar', function(event) {
+$(document).on('click', '.editar', function (event) {
     event.preventDefault();
     var Id_detalle = $(this).closest('tr').find('.Id_detalle').val();
     cargarDatosParaEditar(Id_detalle);
@@ -215,7 +229,7 @@ function cargarDatosParaEditar(Id_detalle) {
                     Id_detalle: Id_detalle
                 },
                 dataType: 'json',
-                success: function(data) {
+                success: function (data) {
                     console.log(data);
                     if (data) {
                         $("#Id_detalle").val(Id_detalle);
@@ -223,9 +237,9 @@ function cargarDatosParaEditar(Id_detalle) {
                         $("#sel_idProducto").val(data.sel_idProducto);
                         $("#cantidad").val(data.cantidad);
                         $("#tipo_envio").val(data.tipo_envio);
-                        $("#precio_unitario").val(data.precio_unitario);
+                        $("#total").val(data.total);
                         $("#btn_Update").show(); // Se muestra el botón de editar después de cargar los datos
-                        
+
                         // La variable editando pasa a true, ya que el evento actualizar se está ejecutando
                         editando = true;
                         asignarEventoActualizar(Id_detalle); // Se asigna el evento click después de mostrar el botón
@@ -234,7 +248,7 @@ function cargarDatosParaEditar(Id_detalle) {
                         Swal.fire("¡Datos Cargados!", "Los datos han sido cargados para editar.", "success");
                     }
                 },
-                error: function() {
+                error: function () {
                     Swal.fire("Error", "Error al cargar los datos para editar", "error");
                 }
             });
@@ -246,14 +260,14 @@ function cargarDatosParaEditar(Id_detalle) {
 
 // Función encargada de ejecutar el evento actualizar
 function asignarEventoActualizar(Id_detalle) {
-    $("#btn_Update").off('click').on('click', function(event) { 
+    $("#btn_Update").off('click').on('click', function (event) {
         event.preventDefault();
         if (editando) {
             var sel_idPedido = $('#sel_idPedido').val();
             var sel_idProducto = $('#sel_idProducto').val();
             var cantidad = $('#cantidad').val();
             var tipo_envio = $('#tipo_envio').val();
-            var precio_unitario = $('#precio_unitario').val();
+            var total = $('#total').val();
 
             $.ajax({
                 type: "POST",
@@ -264,9 +278,9 @@ function asignarEventoActualizar(Id_detalle) {
                     sel_idProducto: sel_idProducto,
                     cantidad: cantidad,
                     tipo_envio: tipo_envio,
-                    precio_unitario: precio_unitario
+                    total: total
                 },
-                success: function(response) {
+                success: function (response) {
                     Swal.fire({
                         title: '¡Datos Actualizados!',
                         text: 'Los datos han sido actualizados correctamente.',
@@ -280,7 +294,7 @@ function asignarEventoActualizar(Id_detalle) {
                     console.log(response);
                     $("#btn_Update").hide(); // Se oculta el botón de editar después de actualizar los datos
                 },
-                error: function() {
+                error: function () {
                     Swal.fire("Error", "Error al actualizar los datos, intente de nuevo", "error");
                 }
             });
