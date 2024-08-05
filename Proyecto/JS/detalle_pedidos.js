@@ -22,7 +22,7 @@ $(document).ready(function () {
     }
 
     // Manejar eventos de cambio de página
-    $(document).on("click", ".pagination-link", function () {
+    $(document).on("click", ".pagination-link-pedidos", function () {
         var pagina = $(this).data("pagina");
         cargarTabla(pagina);
     });

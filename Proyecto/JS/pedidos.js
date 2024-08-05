@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     // Función para cargar datos de la tabla
     function cargarTabla(pagina) {
-        console.log("Cargando tabla de la página: " + pagina);
+        //console.log("Cargando tabla de la página: " + pagina);
         $.ajax({
             url: '../PHP/Consultas/TablaPedidos.php',
             method: 'POST',
@@ -16,17 +16,15 @@ $(document).ready(function () {
                 document.getElementById("tablaPedidos").innerHTML = dataresponse;
             },
             error: function (request, errorcode, errortext) {
-                swal("Alerta!", "Error: " + request.status + " " + request.statusText, "warning");
-                console.log("Error: ", errorcode);
+                swal("Alerta!" + request, "warning"); console.log("Error: ", errorcode);
                 console.log("Error text: ", errortext);
             }
         });
     }
 
     // Manejar eventos de cambio de página
-    $(document).on("click", ".pagination-link", function () {
+    $(document).on("click", ".pagination-link-pedidos", function () {
         var pagina = $(this).data("pagina");
-        console.log("Página seleccionada: " + pagina);
         cargarTabla(pagina);
     });
 });
