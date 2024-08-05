@@ -336,19 +336,43 @@
     </section>
 
 
+
     <!-- MODAL CARRITO DE COMPRAS -->
     <div id="cart-container" style="display: none;">
         <!-- Inputs Modal Carrito Compras -->
-        <select class="form-select" name="" id="sel_idCliente" style="margin-bottom: 10px;">
-            <option value="" selected>Seleccione un Usuario</option>
-        </select>
+        <!-- Row 1 -->
+        <div class="row">
+            <div class="col-md-6">
+                <label for="sel_idCliente" style="float: inline-start;">Cliente:</label>
+                <select class="form-select" name="" id="sel_idCliente" style="margin-bottom: 10px;">
+                    <option value="" selected>Seleccione un Usuario</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="FechaPedido" style="float: inline-start;">Fecha:</label>
+                <input class="form-control" type="datetime-local" name="" id="FechaPedido" placeholder="Fecha del pedido" style="margin-bottom: 10px;">
+            </div>
+        </div>
 
-        <input class="form-control" type="datetime-local" name="" id="FechaPedido" placeholder="Fecha del pedido" style="margin-bottom: 10px;">
+        <!-- Row 2 -->
+        <div class="row">
+            <div class="col-md-6">
+                <label for="estado_pedido" style="float: inline-start;">Estado del Pedido:</label>
+                <select class="form-control" id="estado_pedido" name="estado_pedido" style="margin-bottom: 10px;">
+                    <option value="">Estado del pedido</option>
+                    <option value="pendiente" selected>Pendiente</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="tipo_envio" style="float: inline-start;">Tipo de Envio:</label>
+                <select class="form-control" id="tipo_envio" name="tipo_envio" style="margin-bottom: 10px;">
+                    <option value="">Tipo de envio</option>
+                    <option value="Express">Express</option>
+                    <option value="Tienda">En tienda</option>
+                </select>
+            </div>
+        </div>
 
-        <select class="form-control" id="estado_pedido" name="estado_pedido" style="margin-bottom: 10px;">
-            <option value="">Estado del pedido</option>
-            <option value="pendiente" selected>Pendiente</option>
-        </select>
 
         <!-- Productos Modal Carrito Compras-->
         <h3>Productos</h3>

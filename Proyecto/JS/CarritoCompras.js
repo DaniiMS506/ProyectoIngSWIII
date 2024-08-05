@@ -1,6 +1,8 @@
+// Carrito de Compras JS
+
 let cart = [];
 
-// BTN Add to Card
+// BTN Add to Cart
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function () {
         const productId = this.getAttribute('data-id');
@@ -45,11 +47,8 @@ function updateCartBadge() {
     cartBadge.textContent = totalItems;
 }
 
-
-
 // Mostrar Modal del Carrito de Compras
 function showCartModal() {
-    const cartContainer = document.getElementById('cart-container'); // Modal Inputs
     const cartProducts = document.getElementById('cart-products'); // Modal Productos
 
     cartProducts.innerHTML = '';
@@ -57,74 +56,89 @@ function showCartModal() {
     if (cart.length === 0) {
         cartProducts.innerHTML = '<p>No hay productos en el carrito.</p>';
     } else {
+        let totalPrice = 0;
+
         cart.forEach(item => {
+            const itemPrice = item.price * item.quantity;
+            totalPrice += itemPrice;
+
             const productElement = document.createElement('div');
             productElement.className = 'cart-item';
             productElement.innerHTML = `
                 <h5>${item.name}</h5>
                 <p>${item.description}</p>
                 <p>Precio: $${item.price.toFixed(2)}</p>
-                <p>Cantidad: 
+                <p>Cantidad: <br>
                     <button class="btn btn-sm btn-primary decrease-quantity" data-id="${item.id}"> - </button>
                     <span>${item.quantity}</span>
                     <button class="btn btn-sm btn-primary increase-quantity" data-id="${item.id}"> + </button>
-
                 </p>
+                <p>Subtotal: $${itemPrice.toFixed(2)}</p>
                 <button class="btn btn-sm btn-danger remove-item" data-id="${item.id}">Eliminar</button>
                 <hr>
             `;
             cartProducts.appendChild(productElement);
         });
 
+        const totalElement = document.createElement('div');
+        totalElement.innerHTML = `<h4>Total: $${totalPrice.toFixed(2)}</h4>`;
+        cartProducts.appendChild(totalElement);
 
-        // AUMENTAR CANTIDAD
-        document.querySelectorAll('.increase-quantity').forEach(button => {
-            button.addEventListener('click', function () {
-                const productId = this.getAttribute('data-id');
-                const product = cart.find(item => item.id === productId);
-                product.quantity++;
-                showCartModal();
-                updateCartBadge();
-            });
-        });
-
-
-        // RESTAR CANTIDAD
-        document.querySelectorAll('.decrease-quantity').forEach(button => {
-            button.addEventListener('click', function () {
-                const productId = this.getAttribute('data-id');
-                const product = cart.find(item => item.id === productId);
-                if (product.quantity > 1) {
-                    product.quantity--;
-                } else {
-                    cart = cart.filter(item => item.id !== productId);
-                }
-                showCartModal();
-                updateCartBadge();
-            });
-        });
-
-
-        // ELIMINAR DEL CARRITO
-        document.querySelectorAll('.remove-item').forEach(button => {
-            button.addEventListener('click', function () {
-                const productId = this.getAttribute('data-id');
-                cart = cart.filter(item => item.id !== productId);
-                showCartModal();
-                updateCartBadge();
-            });
-        });
+        // Asegúrate de que los botones sean accesibles en el momento de asignar los eventos
+        setTimeout(assignCartModalEvents, 100); // Retrasar la asignación de eventos para asegurar que el DOM esté actualizado
     }
 
     Swal.fire({
         title: 'Carrito de Compras',
-        html: cartContainer.innerHTML,
+        html: document.getElementById('cart-container').innerHTML,
         showCancelButton: true,
         cancelButtonText: 'Cerrar',
         showConfirmButton: false
     });
 }
 
+// Asignar eventos de los botones dentro del modal
+function assignCartModalEvents() {
+    // AUMENTAR CANTIDAD
+    document.querySelectorAll('.increase-quantity').forEach(button => {
+        button.addEventListener('click', function () {
+            const productId = this.getAttribute('data-id');
+            const product = cart.find(item => item.id === productId);
+            if (product) {
+                product.quantity++;
+                updateCartBadge();
+                showCartModal(); // Actualizar el modal
+            }
+        });
+    });
+
+    // RESTAR CANTIDAD
+    document.querySelectorAll('.decrease-quantity').forEach(button => {
+        button.addEventListener('click', function () {
+            const productId = this.getAttribute('data-id');
+            const product = cart.find(item => item.id === productId);
+            if (product) {
+                if (product.quantity > 1) {
+                    product.quantity--;
+                } else {
+                    cart = cart.filter(item => item.id !== productId);
+                }
+                updateCartBadge();
+                showCartModal(); // Actualizar el modal
+            }
+        });
+    });
+
+    // ELIMINAR DEL CARRITO
+    document.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', function () {
+            const productId = this.getAttribute('data-id');
+            cart = cart.filter(item => item.id !== productId);
+            updateCartBadge();
+            showCartModal(); // Actualizar el modal
+        });
+    });
+}
 
 document.addEventListener('click', function (event) {
     if (event.target && event.target.id === 'checkout-button') {
@@ -144,7 +158,6 @@ document.addEventListener('click', function (event) {
         });
     }
 });
-
 
 // Insert Pedido y Detalle Pedido
 async function checkoutCart() {
@@ -170,3 +183,6 @@ async function checkoutCart() {
         return false;
     }
 }
+
+
+
