@@ -125,7 +125,7 @@ $(document).ready(function () {
     `,
             focusConfirm: false,
             showCancelButton: true,
-            preConfirm: () => {
+            /*preConfirm: () => {
                 return [
                     document.getElementById('swal-input1').value,
                     document.getElementById('swal-input2').value,
@@ -134,6 +134,41 @@ $(document).ready(function () {
                     document.getElementById('swal-input5').value,
                     document.getElementById('swal-input6').value
                 ];
+            }*/
+            preConfirm: () => {
+                const nombre = document.getElementById('swal-input1').value;
+                const apellido = document.getElementById('swal-input2').value;
+                const email = document.getElementById('swal-input3').value;
+                const password = document.getElementById('swal-input4').value;
+                const telefono = document.getElementById('swal-input5').value;
+                const direccion = document.getElementById('swal-input6').value;
+
+                if (!nombre || !apellido || !email || !password || !telefono || !direccion) {
+                    Swal.showValidationMessage('Por favor, complete todos los campos.');
+                    return false;
+                }
+
+                // Validación básica de email
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    Swal.showValidationMessage('Por favor, ingrese un correo electrónico válido.');
+                    return false;
+                }
+
+                // Validación básica de teléfono (números y longitud mínima de 8 caracteres)
+                const telefonoPattern = /^\d{8,}$/;
+                if (!telefonoPattern.test(telefono)) {
+                    Swal.showValidationMessage('Por favor, ingrese un número de teléfono válido (mínimo 8 dígitos).');
+                    return false;
+                }
+
+                // Validación de contraseña (mínimo 3 caracteres)
+                if (password.length < 3) {
+                    Swal.showValidationMessage('La contraseña debe tener al menos 3 caracteres.');
+                    return false;
+                }
+
+                return [nombre, apellido, email, password, telefono, direccion];
             }
         });
 

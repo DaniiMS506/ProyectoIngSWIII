@@ -26,7 +26,7 @@ if (isset($data['nombre'], $data['apellido'], $data['email'], $data['password'],
 
     // Ejecutar la consulta
     if ($stmt->bind_param("ssssis", $nombre, $apellido, $email, $password, $telefono, $direccion) && $stmt->execute()) {
-        echo json_encode(["success" => true, "message" => "User registered successfully."]);
+        echo json_encode(["success" => true, "message" => "Usuario registrado exitosamente."]);
     } else {
         echo json_encode(["success" => false, "message" => "Execution failed: " . $stmt->error]);
     }
@@ -34,5 +34,5 @@ if (isset($data['nombre'], $data['apellido'], $data['email'], $data['password'],
     $stmt->close();
     $conn->close();
 } else {
-    echo json_encode(["success" => false, "message" => "All fields are required."]);
+    echo json_encode(["success" => false, "message" => "Todos los campos son obligatorios."]);
 }
