@@ -133,6 +133,7 @@
             <div class="text-center text-white">
                 <h1 class="display-4 fw-bolder">InventaTech Pro</h1>
                 <p class="lead fw-normal text-white-50 mb-0">Dise&ntilde;o y desarrollo con excelencia</p>
+                <p class="lead fw-normal text-white-50 mb-0"> <span class="multiple-text2"> <!--Typed JS--> </span> </p>
             </div>
         </div>
     </header>

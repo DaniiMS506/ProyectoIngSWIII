@@ -167,6 +167,16 @@ $(document).ready(function () {
 
 
 /************************************ Typed JS/Text Animations ************************************/
+// Frases 
+const typed2 = new Typed('.multiple-text2', {
+    strings: ['En TecnoFarma encontrarás siempre lo mejor para ti', 'Tu bienestar, es nuestra prioridad', 'Salud y bienestar a un paso de tu hogar'],
+    typeSpeed: 85,
+    backSpeed: 35,
+    backDelay: 1300,
+    loop: true
+});
+
+// By
 const typed = new Typed('.multiple-text1', {
     strings: ['Kendal Daniel Muñoz Solano', 'Daniel Alonso Meneses Chavarria', 'Alejandro Jesus Solis Rojas'],
     typeSpeed: 90,
