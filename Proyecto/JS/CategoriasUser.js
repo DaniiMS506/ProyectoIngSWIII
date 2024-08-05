@@ -1,17 +1,8 @@
-// Obtener la fecha actual y Llenado dinamico de Fecha
-
-
-// Asignar la fecha actual al input de fecha
-//document.getElementById('txtFecha').value = formattedToday;
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-
-$(document).ready(function() {
+$(document).ready(function () {
     cargarTablaCategoria(1);
 
-    // Evento de click para el botón de inserción de productos
-    $('#btn_RegistrarCat').on('click', async function(e) {
+    // Evento de click para el botón de inserción de categorias
+    $('#btn_RegistrarCat').on('click', async function (e) {
         e.preventDefault();
 
         // Obtener datos del formulario de inserción
@@ -33,7 +24,7 @@ $(document).ready(function() {
                     Nombre_categoria: nombreCategoria,
                     Descripcion: descripcion
                 },
-                success: async function(dataresponse) {
+                success: async function (dataresponse) {
                     if (dataresponse.status === 'success') {
                         var insertedRow = dataresponse.data;
 
@@ -49,7 +40,7 @@ $(document).ready(function() {
                         $('#NombreCategoria, #descripcion').val('');
 
                         // Mostrar mensaje de éxito
-                    swal("Categoria Agregado!", "La categoria ha sido insertado correctamente.", "success");
+                        swal("Categoria Agregado!", "La categoria ha sido insertado correctamente.", "success");
 
                         // Después de la inserción, cargar nuevamente los datos de la tabla
                         await cargarTablaCategoria(1);
@@ -57,7 +48,7 @@ $(document).ready(function() {
                         swal("Alerta!" + dataresponse, "warning");
                     }
                 },
-                error: function(request, errorcode, errortext) {
+                error: function (request, errorcode, errortext) {
                     swal("Alerta!", "Error en la solicitud: " + errorcode, "warning");
                     console.log(request, errorcode, errortext);
                 }
@@ -75,18 +66,18 @@ $(document).ready(function() {
             data: {
                 pagina: pagina
             },
-            success: function(dataresponse, statustext, response) {
+            success: function (dataresponse, statustext, response) {
                 document.getElementById("tablaCategorias").innerHTML = dataresponse;
             },
-            error: function(request, errorcode, errortext) {
+            error: function (request, errorcode, errortext) {
                 swal("Alerta!", "Error en la solicitud: " + errorcode, "warning");
                 console.log(request, errorcode, errortext);
             }
         });
     }
 
-    // Manejar eventos de cambio de página para productos
-    $(document).on("click", ".pagination-link-productos", function() {
+    // Manejar eventos de cambio de página para categorias
+    $(document).on("click", ".pagination-link-productos", function () {
         var pagina = $(this).data("pagina");
         cargarTablaCategoria(pagina);
     });

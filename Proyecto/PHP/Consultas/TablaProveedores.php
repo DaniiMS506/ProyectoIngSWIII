@@ -19,13 +19,13 @@ $pagina = isset($_POST['pagina']) ? $_POST['pagina'] : 1;
 // Calcular el offset
 $offset = ($pagina - 1) * $limit;
 
-// Obtener los productos con paginación y el nombre de la categoría
+// Obtener los proveedores con paginación y el nombre de la categoría
 $sql = "SELECT * from proveedor
         LIMIT $limit OFFSET $offset";
 $result = mysqli_query($conn, $sql);
 
 while ($row = mysqli_fetch_array($result)) {
-    
+
     $tabla .= "
         <tr>
             <td>" . $row["Nombre"] . "</td>
