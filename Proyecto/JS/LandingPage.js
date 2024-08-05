@@ -8,7 +8,7 @@ $(document).ready(function () {
             title: "Contáctenos",
             html: '<i class="fas fa-envelope"></i> Email: TecnoFarma@gmail.com<br>' +
                 '<i class="fas fa-phone"></i> Teléfono: 123-456-7890<br>' +
-                '<i class="fab fa-whatsapp"></i> <a href="https://wa.me/+50663463464" target="_blank">Enviar mensaje rápido</a>',
+                '<i class="fab fa-whatsapp"></i> <a href="https://wa.me/+50661653424" target="_blank">Enviar mensaje rápido</a>',
             icon: "info"
         });
     });
