@@ -1,16 +1,23 @@
 $(document).ready(function () {
-    // Btn Contactenos
+    ///////////////////////////////////////////////////
+    /* Contactenos */
+    //////////////////////////////////////////////////
     $('#Contactenos').on('click', async function (e) {
         e.preventDefault();
-        //alert('OK');
         Swal.fire({
             title: "Contáctenos",
-            html: '<i class="fas fa-envelope"></i> Email: TecnoFarma@gmail.com<br><i class="fas fa-phone"></i> Teléfono: 123-456-7890',
+            html: '<i class="fas fa-envelope"></i> Email: TecnoFarma@gmail.com<br>' +
+                '<i class="fas fa-phone"></i> Teléfono: 123-456-7890<br>' +
+                '<i class="fab fa-whatsapp"></i> <a href="https://wa.me/+50663463464" target="_blank">Enviar mensaje rápido</a>',
             icon: "info"
         });
     });
 
-    // Btn Login
+
+
+    ///////////////////////////////////////////////////
+    /* LOGIN */
+    //////////////////////////////////////////////////
     $('#btn_Login').on('click', async function (e) {
         e.preventDefault();
 
@@ -80,9 +87,9 @@ $(document).ready(function () {
 
 
 
-
-
-    // Btn Registro btn_Registrarse
+    ///////////////////////////////////////////////////
+    /* REGISTRARSE */
+    //////////////////////////////////////////////////
     $('#btn_Registrarse').on('click', async function (e) {
         e.preventDefault();
 
@@ -164,6 +171,7 @@ $(document).ready(function () {
 
 
 }); //END
+
 
 
 /************************************ Typed JS/Text Animations ************************************/
