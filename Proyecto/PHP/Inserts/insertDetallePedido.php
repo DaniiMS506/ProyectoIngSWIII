@@ -6,14 +6,14 @@ $Id_pedido = $_POST["Id_pedido"];
 $Id_producto = $_POST["Id_producto"];
 $cantidad = $_POST["cantidad"];
 $tipo_envio = $_POST["tipo_envio"];
-$precio_unitario = $_POST["precio_unitario"];
+$total_final = $_POST["total"];
 
 // Iniciar la transacción
 mysqli_begin_transaction($conn, MYSQLI_TRANS_START_READ_WRITE);
 
 try {
     // Consulta SQL para insertar datos en detalle_pedido
-    $sqlDetallePedido = "INSERT INTO detalle_pedido (Id_pedido, Id_producto, Cantidad, Tipo_envio, Precio_unitario) VALUES (?, ?, ?, ?, ?)";
+    $sqlDetallePedido = "INSERT INTO detalle_pedido (Id_pedido, Id_producto, Cantidad, Tipo_envio, Total) VALUES (?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sqlDetallePedido);
 
     if ($stmt === false) {
@@ -21,7 +21,7 @@ try {
     }
 
     // Asociar los parámetros con la consulta
-    mysqli_stmt_bind_param($stmt, 'sssss', $Id_pedido, $Id_producto, $cantidad, $tipo_envio, $precio_unitario);
+    mysqli_stmt_bind_param($stmt, 'sssss', $Id_pedido, $Id_producto, $cantidad, $tipo_envio, $total_final);
 
     // Ejecutar la consulta de inserción
     if (!mysqli_stmt_execute($stmt)) {

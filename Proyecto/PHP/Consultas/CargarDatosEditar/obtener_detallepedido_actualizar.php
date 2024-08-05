@@ -13,7 +13,7 @@ if ($row = mysqli_fetch_assoc($result)) {
         "sel_idProducto" => $row["Id_producto"],
         "cantidad" => $row["Cantidad"],
         "tipo_envio" => $row["Tipo_envio"],
-        "precio_unitario" => $row["Precio_unitario"]
+        "total" => $row["Total"]
     ];
     echo json_encode($data);
 } else {

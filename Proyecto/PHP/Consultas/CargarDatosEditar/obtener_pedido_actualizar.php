@@ -11,8 +11,7 @@ if ($row = mysqli_fetch_assoc($result)) {
         "id" => $row["Id_pedido"],
         "sel_idCliente" => $row["Id_cliente"],
         "FechaPedido" => $row["Fecha_pedido"],
-        "estado_pedido" => $row["Estado"],
-        "total_pedido" => $row["Total"]
+        "estado_pedido" => $row["Estado"]
     ];
     echo json_encode($data);
 } else {

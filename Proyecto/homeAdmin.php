@@ -17,7 +17,7 @@ if (!isset($_SESSION['Id_usuario'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin TecnoFarma</title>
+    <title>TecnoFarma</title>
 
     <!--Web Icon-->
     <link rel='shortcut icon' type='image/png' href='IMG/Icons/web-icon.png' />
@@ -77,6 +77,7 @@ if (!isset($_SESSION['Id_usuario'])) {
 
             <li><a href="PagesAdmin/ProductosAdmin.php" class="fa fa-dropbox"> Productos</a></li>
             <li><a href="PagesAdmin/InventarioAdmin.php" class="fa fa-archive"> Inventario</a></li>
+
             <li><a href="PagesAdmin/PedidosAdmin.php" class="fa fa-book"> Pedidos de Clientes</a></li>
             <li><a href="PagesAdmin/Detalle_pedidoAdmin.php" class="fa fa-clipboard"> Detalle de Pedidos de Clientes</a></li>
 

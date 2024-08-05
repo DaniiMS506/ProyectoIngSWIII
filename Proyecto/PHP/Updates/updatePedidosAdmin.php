@@ -12,16 +12,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sel_idCliente = $_POST['sel_idCliente']; 
     $FechaPedido = $_POST['FechaPedido']; 
     $estado_pedido = $_POST['estado_pedido']; 
-    $total = $_POST['total_pedido']; 
+
 
 
     // Verificar que todos los datos necesarios estén presentes
-    if (empty($Id_pedido) || empty($sel_idCliente) || empty($FechaPedido) || empty($estado_pedido) || empty($total)) {
+    if (empty($Id_pedido) || empty($sel_idCliente) || empty($FechaPedido) || empty($estado_pedido)) {
         die("Todos los campos son obligatorios");
     }
 
     // Construir la consulta SQL
-    $query = "UPDATE pedido SET Id_Cliente = '$sel_idCliente', Fecha_pedido = '$FechaPedido', Estado = '$estado_pedido', Total = '$total' WHERE Id_pedido = '$Id_pedido'";
+    $query = "UPDATE pedido SET Id_Cliente = '$sel_idCliente', Fecha_pedido = '$FechaPedido', Estado = '$estado_pedido'WHERE Id_pedido = '$Id_pedido'";
 
     // Ejecutar la consulta SQL
     if (mysqli_query($conn, $query)) {

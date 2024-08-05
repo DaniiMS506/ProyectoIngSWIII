@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventario Admin</title>
+    <title>Inventario</title>
 
     <!--Web Icon-->
     <link rel='shortcut icon' type='image/png' href='../IMG/Icons/web-icon.png' />

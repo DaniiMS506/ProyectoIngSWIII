@@ -7,7 +7,7 @@
     <title>Pedidos de clientes</title>
 
     <!--Web Icon-->
-    <link rel='shortcut icon' type='image/png' href='../IMG/web-icon.png' />
+    <link rel='shortcut icon' type='image/png' href='../IMG/Icons/web-icon.png' />
     <!--CSS-->
     <link rel="stylesheet" href="../CSS/Styles.css">
     <link rel="stylesheet" href="../CSS/Styles2.css">
@@ -89,7 +89,7 @@
                                         <option value="cancelado">Cancelado</option>
                                         <option value="enviado">Enviado</option>
                                     </select>
-                                    <input class="form-control" type="int" name="" id="total_pedido" placeholder="Total del pedido" style="margin-bottom: 10px;">
+
                                     <button type="submit" class="btn btn-dark" id="btn_RegistrarPedido" style="margin-top: 15px;">Agregar</button>
                                     <button type="submit" class="btn btn-dark" id="btn_Update" style="margin-top: 15px; display: none;">Actualizar campos</button>
                                 </div>
@@ -100,7 +100,7 @@
             </div>
         </div>
     </main>
-    <h2 id="tituloProd">Tabla de Pedidos Administrador</h2>
+    <h2 id="tituloProd">Tabla de Pedidos</h2>
 
     <div class="div-tabla">
         <table class="table table-dark" id="tabla">
@@ -110,7 +110,6 @@
                     <th>ID del cliente</th>
                     <th>Fecha del pedido</th>
                     <th>Estado del pedido</th>
-                    <th>Total Final</th>
                     <th>Acciones</th>
                 </tr>
             </thead>

@@ -13,10 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sel_idProducto = $_POST['sel_idProducto']; 
     $cantidad = $_POST['cantidad']; 
     $tipo_envio = $_POST['tipo_envio']; 
-    $precio_unitario = $_POST['precio_unitario']; 
+    $total = $_POST['total']; 
 
     // Verificar que todos los datos necesarios estén presentes
-    if (empty($Id_detalle) || empty($sel_idPedido) || empty($sel_idProducto) || empty($cantidad) || empty($tipo_envio) || empty($precio_unitario)) {
+    if (empty($Id_detalle) || empty($sel_idPedido) || empty($sel_idProducto) || empty($cantidad) || empty($tipo_envio) || empty($total)) {
         die("Todos los campos son obligatorios");
     }
 
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         // Construir la consulta SQL para actualizar detalle_pedido
-        $query = "UPDATE detalle_pedido SET Id_pedido = '$sel_idPedido', Id_producto = '$sel_idProducto', Cantidad = '$cantidad', Tipo_envio = '$tipo_envio', Precio_unitario = '$precio_unitario' WHERE Id_detalle = '$Id_detalle'";
+        $query = "UPDATE detalle_pedido SET Id_pedido = '$sel_idPedido', Id_producto = '$sel_idProducto', Cantidad = '$cantidad', Tipo_envio = '$tipo_envio', Total = '$total' WHERE Id_detalle = '$Id_detalle'";
         
         // Ejecutar la consulta SQL para actualizar detalle_pedido
         if (!mysqli_query($conn, $query)) {

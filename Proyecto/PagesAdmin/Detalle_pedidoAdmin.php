@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle de Pedidos de clientes</title>
+    <title>Detalle de Pedidos de Clientes</title>
 
     <!--Web Icon-->
-    <link rel='shortcut icon' type='image/png' href='../IMG/web-icon.png' />
+    <link rel='shortcut icon' type='image/png' href='../IMG/Icons/web-icon.png' />
     <!--CSS-->
     <link rel="stylesheet" href="../CSS/Styles.css">
     <link rel="stylesheet" href="../CSS/Styles2.css">
@@ -89,7 +89,7 @@
                                         <option value="Express">Express</option>
                                         <option value="Tienda">En tienda</option>
                                     </select>
-                                    <input class="form-control" type="int" name="" id="precio_unitario" placeholder="Precio Unitario" style="margin-bottom: 10px;">
+                                    <input class="form-control" type="text" name="" id="total" placeholder="Total Final" style="margin-bottom: 10px;" readonly>
 
                                     <button type="submit" class="btn btn-dark" id="btn_RegistrarDetalle_Pedido" style="margin-top: 15px;">Agregar</button>
                                     <button type="submit" class="btn btn-dark" id="btn_Update" style="margin-top: 15px; display: none;">Actualizar campos</button>
@@ -101,7 +101,7 @@
             </div>
         </div>
     </main>
-    <h2 id="tituloProd">Tabla de Detalles de Pedidos Administrador</h2>
+    <h2 id="tituloProd">Tabla de Detalles de Pedidos</h2>
 
     <div class="div-tabla">
         <table class="table table-dark" id="tabla">
@@ -112,7 +112,7 @@
                     <th>ID del Producto</th>
                     <th>Cantidad</th>
                     <th>Tipo de envio</th>
-                    <th>Precio Unitario</th>
+                    <th>Total Final</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
