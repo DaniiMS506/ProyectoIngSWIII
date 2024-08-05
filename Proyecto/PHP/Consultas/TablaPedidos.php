@@ -20,7 +20,7 @@ $pagina = isset($_POST['pagina']) ? $_POST['pagina'] : 1;
 $offset = ($pagina - 1) * $limit;
 
 // Obtener los pedidos con paginación
-$sql = "SELECT Id_pedido, Id_cliente, Fecha_Pedido, Estado, Total 
+$sql = "SELECT Id_pedido, Id_cliente, Fecha_Pedido, Estado 
         FROM Pedido 
         LIMIT $limit OFFSET $offset";
 $result = mysqli_query($conn, $sql);
@@ -32,7 +32,6 @@ while ($row = mysqli_fetch_array($result)) {
             <td>" . htmlspecialchars($row["Id_cliente"]) . "</td>
             <td>" . htmlspecialchars($row["Fecha_Pedido"]) . "</td>
             <td>" . htmlspecialchars($row["Estado"]) . "</td>
-            <td>" . '₡' . htmlspecialchars($row["Total"]) . "</td>
         </tr>";
 }
 
@@ -44,4 +43,3 @@ for ($i = 1; $i <= $totalPaginas; $i++) {
 $tabla .= '</td></tr>';
 
 echo $tabla;
-?>

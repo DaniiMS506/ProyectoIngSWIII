@@ -51,7 +51,6 @@ try {
     // Cerrar las sentencias preparadas
     mysqli_stmt_close($stmt);
     mysqli_stmt_close($stmtUpdate);
-
 } catch (Exception $e) {
     // Revertir la transacción en caso de error
     mysqli_rollback($conn);
@@ -59,4 +58,3 @@ try {
 }
 
 mysqli_close($conn);
-?>

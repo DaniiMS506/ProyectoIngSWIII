@@ -30,7 +30,7 @@
 
 <body>
     <header class="header">
-        <h1>ING SW II - Pedidos de clientes</h1>
+        <h1>TecnoFarma - Pedidos de clientes</h1>
     </header>
 
     <nav class="navbar">
@@ -84,7 +84,6 @@
                                         <option value="cancelado">Cancelado</option>
                                         <option value="enviado">Enviado</option>
                                     </select>
-                                    <input class="form-control" type="int" name="" id="total_pedido" placeholder="Total del pedido" style="margin-bottom: 10px;">
 
                                     <button type="submit" class="btn btn-dark" id="btn_RegistrarPedido" style="margin-top: 15px;">Agregar</button>
                                 </div>
@@ -105,7 +104,6 @@
                     <th>ID del cliente</th>
                     <th>Fecha del pedido</th>
                     <th>Estado del pedido</th>
-                    <th>Total Final</th>
                 </tr>
             </thead>
 

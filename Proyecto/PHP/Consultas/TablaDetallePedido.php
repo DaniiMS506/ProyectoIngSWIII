@@ -20,7 +20,7 @@ $pagina = isset($_POST['pagina']) ? $_POST['pagina'] : 1;
 $offset = ($pagina - 1) * $limit;
 
 // Obtener los pedidos con paginación
-$sql = "SELECT Id_detalle, Id_pedido, Id_producto, Cantidad, Tipo_envio, Precio_unitario 
+$sql = "SELECT Id_detalle, Id_pedido, Id_producto, Cantidad, Tipo_envio, Total 
         FROM detalle_pedido 
         LIMIT $limit OFFSET $offset";
 $result = mysqli_query($conn, $sql);
@@ -33,7 +33,7 @@ while ($row = mysqli_fetch_array($result)) {
             <td>" . htmlspecialchars($row["Id_producto"]) . "</td>
             <td>" . htmlspecialchars($row["Cantidad"]) . "</td>
             <td>" . htmlspecialchars($row["Tipo_envio"]) . "</td>
-            <td>" . '₡' . htmlspecialchars($row["Precio_unitario"]) . "</td>
+            <td>" . '₡' . htmlspecialchars($row["Total"]) . "</td>
         </tr>";
 }
 
@@ -45,4 +45,3 @@ for ($i = 1; $i <= $totalPaginas; $i++) {
 $tabla .= '</td></tr>';
 
 echo $tabla;
-?>

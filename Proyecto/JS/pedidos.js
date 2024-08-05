@@ -63,11 +63,10 @@ $(document).ready(function () {
         var Id_cliente = $('#sel_idCliente').val();
         var fecha_pedido = $('#FechaPedido').val();
         var estado = $('#estado_pedido').val();
-        var total_pedido = $('#total_pedido').val();
 
 
         // Validaciones
-        if (Id_cliente === '' || fecha_pedido === '' || estado === '' || total_pedido === '') {
+        if (Id_cliente === '' || fecha_pedido === '' || estado === '') {
             swal("Alerta!", "Por favor, complete todos los campos!", "warning");
             return;
         }
@@ -79,12 +78,16 @@ $(document).ready(function () {
             data: {
                 Id_cliente: Id_cliente,
                 fecha_pedido: fecha_pedido,
-                estado: estado,
-                total_pedido: total_pedido
+                estado: estado
             },
             success: function (response) {
                 console.log(response);
                 swal("Pedido Registrado!", response, "success");
+
+                // Recargar la página después de 1 segundo
+                setTimeout(function () {
+                    location.reload();
+                }, 1000);
             },
             error: function (error) {
                 console.log(error);

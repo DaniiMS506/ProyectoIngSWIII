@@ -31,7 +31,7 @@
 
 <body>
     <header class="header">
-        <h1>ING SW II - Detalle de Pedidos de clientes</h1>
+        <h1>TecnoFarma - Detalle de Pedidos de clientes</h1>
     </header>
 
     <nav class="navbar">
@@ -88,7 +88,8 @@
                                         <option value="Express">Express</option>
                                         <option value="Tienda">En tienda</option>
                                     </select>
-                                    <input class="form-control" type="int" name="" id="precio_unitario" placeholder="Precio Unitario" style="margin-bottom: 10px;">
+
+                                    <input class="form-control" type="text" name="" id="total" placeholder="Total Final" style="margin-bottom: 10px;" readonly>
 
                                     <button type="submit" class="btn btn-dark" id="btn_RegistrarDetalle_Pedido" style="margin-top: 15px;">Agregar</button>
                                 </div>
@@ -110,7 +111,7 @@
                     <th>ID del Producto</th>
                     <th>Cantidad</th>
                     <th>Tipo de envio</th>
-                    <th>Precio Unitario</th>
+                    <th>Total Final</th>
                 </tr>
             </thead>
 

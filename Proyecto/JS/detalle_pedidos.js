@@ -69,6 +69,20 @@ $(document).ready(function () {
             console.error('Error al obtener los productos:', error);
         }
     });
+
+
+    $('#sel_idProducto').change(function () {
+        var precio = parseFloat($('#sel_idProducto option:selected').data('precio')) || 0;
+        $('#total').val(precio.toFixed(2));
+    });
+
+    $('#cantidad').on('input', function () {
+        var precio = parseFloat($('#sel_idProducto option:selected').data('precio')) || 0;
+        var cantidad = parseInt($('#cantidad').val()) || 0;
+        var total = precio * cantidad;
+
+        $('#total').val(total.toFixed(2));
+    });
 });
 
 ////////Insertar nuevo detalle de pedido/////////
@@ -83,11 +97,11 @@ $(document).ready(function () {
         var Id_producto = $('#sel_idProducto').val();
         var cantidad = $('#cantidad').val();
         var tipo_envio = $('#tipo_envio').val();
-        var precio_unitario = $('#precio_unitario').val();
+        var total = $('#total').val();
 
 
         // Validaciones
-        if (Id_pedido === '' || Id_producto === '' || cantidad === '' || tipo_envio === '' || precio_unitario === '') {
+        if (Id_pedido === '' || Id_producto === '' || cantidad === '' || tipo_envio === '' || total === '') {
             swal("Alerta!", "Por favor, complete todos los campos!", "warning");
             return;
         }
@@ -101,7 +115,7 @@ $(document).ready(function () {
                 Id_producto: Id_producto,
                 cantidad: cantidad,
                 tipo_envio: tipo_envio,
-                precio_unitario: precio_unitario
+                total: total
 
             },
             success: function (response) {
