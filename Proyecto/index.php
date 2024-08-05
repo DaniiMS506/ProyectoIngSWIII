@@ -355,6 +355,7 @@
     <script src="JS/ScrollReveal.js"></script>
     <script src="JS/JsCarousel.js"></script>
     <script src="JS/LandingPage.js"></script>
+    <script src="JS/CarritoCompras.js"></script>
 </body>
 
 </html>
