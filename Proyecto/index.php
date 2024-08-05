@@ -348,10 +348,6 @@
         <select class="form-control" id="estado_pedido" name="estado_pedido" style="margin-bottom: 10px;">
             <option value="">Estado del pedido</option>
             <option value="pendiente" selected>Pendiente</option>
-            <option value="procesado">Procesado</option>
-            <option value="entregado">Entregado</option>
-            <option value="cancelado">Cancelado</option>
-            <option value="enviado">Enviado</option>
         </select>
 
         <!-- Productos Modal Carrito Compras-->

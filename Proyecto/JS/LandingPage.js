@@ -85,8 +85,6 @@ $(document).ready(function () {
                     // Modal Carrito Compras
                     updateClientSelect(result.data.Id_cliente, result.data.Nombre, result.data.Apellido);
 
-
-
                     // Hide login and registration btn
                     $('#btn_Login').hide();
                     $('#btn_Registrarse').hide();
@@ -108,7 +106,7 @@ $(document).ready(function () {
         }
     });
 
-    // Function to update the select element
+    // Function para agregar el cliente al select del modal carrito de compras
     function updateClientSelect(id, nombre, apellido) {
         const selectElement = $('#sel_idCliente');
         selectElement.empty();  // Clear previous options
