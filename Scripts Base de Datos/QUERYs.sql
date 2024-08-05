@@ -55,7 +55,6 @@ CREATE TABLE Pedido (
     Id_cliente INT,
     Fecha_pedido DATETIME NOT NULL,
     Estado VARCHAR(20) NOT NULL, /* 'pendiente', 'procesado', 'enviado', 'entregado', 'cancelado' */
-    Total DECIMAL(10, 2) NOT NULL,
     CONSTRAINT FK_Pedidos_Cliente FOREIGN KEY (Id_cliente) REFERENCES Cliente(Id_cliente)
 );
 
@@ -66,7 +65,7 @@ CREATE TABLE Detalle_Pedido (
     Id_producto INT,
     Cantidad INT NOT NULL,
     Tipo_envio VARCHAR(15) NOT NULL,
-    Precio_unitario DECIMAL(10, 2) NOT NULL,
+    Total DECIMAL(10, 2) NOT NULL,
     CONSTRAINT FK_Detalle_Pedido_Pedido FOREIGN KEY (Id_pedido) REFERENCES Pedido(Id_pedido),
     CONSTRAINT FK_Detalle_Pedido_Producto FOREIGN KEY (Id_producto) REFERENCES Producto(Id_producto)
 );

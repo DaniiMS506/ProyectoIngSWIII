@@ -49,16 +49,16 @@ VALUES
 
 -- Inserts para la tabla Pedido
 INSERT INTO Pedido
-    (Id_cliente, Fecha_pedido, Estado, Total)
+    (Id_cliente, Fecha_pedido, Estado)
 VALUES
-    (1, '2024-07-16 10:30:00', 'pendiente', 25.50),
-    (2, '2024-07-16 11:45:00', 'procesado', 45.75),
-    (3, '2024-07-16 13:15:00', 'enviado', 30.00),
-    (4, '2024-07-16 14:30:00', 'entregado', 15.25),
-    (5, '2024-07-16 15:45:00', 'cancelado', 10.50);
+    (1, '2024-07-16 10:30:00', 'pendiente'),
+    (2, '2024-07-16 11:45:00', 'procesado'),
+    (3, '2024-07-16 13:15:00', 'enviado'),
+    (4, '2024-07-16 14:30:00', 'entregado'),
+    (5, '2024-07-16 15:45:00', 'cancelado');
 
 -- Inserts para la tabla Detalle de Pedido
-    INSERT INTO Detalle_Pedido (Id_pedido, Id_producto, Cantidad, Tipo_envio, Precio_unitario)
+    INSERT INTO Detalle_Pedido (Id_pedido, Id_producto, Cantidad, Tipo_envio, Total)
 VALUES
     (1, 1, 2, 'estándar', 5.99),   
     (1, 2, 1, 'express', 8.50),    
