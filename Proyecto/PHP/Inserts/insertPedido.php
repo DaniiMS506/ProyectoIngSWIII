@@ -5,10 +5,9 @@ require_once('../../Conexion/conn.php');
 $Id_cliente = $_REQUEST["Id_cliente"];
 $fecha_pedido = $_REQUEST["fecha_pedido"];
 $estado = $_REQUEST["estado"];
-$total_pedido = $_REQUEST["total_pedido"];
 
 // Consulta SQL para insertar datos
-$sqlPedido = "INSERT INTO pedido (Id_cliente, Fecha_pedido, estado, total) VALUES (?, ?, ?, ?)";
+$sqlPedido = "INSERT INTO pedido (Id_cliente, Fecha_pedido, estado) VALUES (?, ?, ?)";
 $stmt = mysqli_prepare($conn, $sqlPedido);
 
 // Verificar si la preparación de la sentencia fue exitosa
@@ -17,7 +16,7 @@ if ($stmt === false) {
 }
 
 // Asociar los parámetros con la consulta
-mysqli_stmt_bind_param($stmt, 'ssss', $Id_cliente, $fecha_pedido, $estado, $total_pedido);
+mysqli_stmt_bind_param($stmt, 'sss', $Id_cliente, $fecha_pedido, $estado);
 
 try {
     // Ejecutar la consulta
@@ -32,4 +31,3 @@ try {
 }
 
 mysqli_close($conn);
-?>
