@@ -62,7 +62,7 @@ $(document).ready(function () {
             select.empty();
             select.append('<option value="" selected>Seleccione un Producto</option>');
             $.each(data, function (index, producto) {
-                select.append('<option value="' + producto.Id_producto + '">' + producto.Nombre_producto + '</option>');
+                select.append('<option value="' + producto.Id_producto + '" data-precio="' + producto.Precio + '">' + producto.Nombre_producto + '</option>');
             });
         },
         error: function (xhr, status, error) {
