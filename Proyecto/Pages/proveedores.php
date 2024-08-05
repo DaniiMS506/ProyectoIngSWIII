@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
+    <title>Proveedores</title>
     <!--Web Icon-->
     <link rel='shortcut icon' type='image/png' href='../IMG/Icons/web-icon.png' />
 
@@ -63,7 +63,7 @@
 
 <body>
     <header class="header">
-        <h1>TecnoFarma - Productos</h1>
+        <h1>TecnoFarma - Proveedores</h1>
     </header>
 
     <nav class="navbar">
@@ -72,9 +72,9 @@
 
             <li><a href="Productos.php" class="fa fa-dropbox"> Productos</a></li>
             <li><a href="Inventario.php" class="fa fa-archive"> Inventario</a></li>
-            <li><a href="Categorias.php" class="active fa fa-list"> Categorias</a></li>
-            <li><a href="proveedores.php" class="fa fa-group"> Proveedores</a></li>
-            <li><a href="Pedidos.php" class="fa fa-book"> Pedidos de Clientes</a></li>
+            <li><a href="Categorias.php" class="fa fa-list"> Categorias</a></li>
+            <li><a href="proveedores.php" class="active fa fa-group"> Proveedores</a></li>
+            <li><a href="Pedidos.php" class="active fa fa-book"> Pedidos de Clientes</a></li>
             <li><a href="Detalle_pedido.php" class="fa fa-clipboard"> Detalle de Pedidos de Clientes</a></li>
 
             <li><a href="../PHP/logout.php" class="fa fa-sign-out"> Logout</a></li>
@@ -96,21 +96,22 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="accordionBTN">
-                                Registrar Nueva Categoria
+                                Registrar Nuevo Proveedor
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <h2>Registrar Categoria</h2>
+                                <h2>Registrar Proveedor</h2>
 
-                                <input class="form-control" type="text" name="" id="NombreCategoria" placeholder="Nombre Categoria">
+                                <input class="form-control" type="text" name="" id="NombreProveedor" placeholder="Nombre Proveedor">
 
-                                <input class="form-control" type="text" name="" id="descripcion" placeholder="Descripcion de la categoria">
+                                <input class="form-control" type="text" name="" id="direccion" placeholder="Direccion">
 
-                                <!-- <label for="ImagenProd">Agregue una Imagen:</label>
-                                <input type="file" class="form-control" name="ImagenProd" id="ImagenProd" accept="image/*"> -->
+                                <input class="form-control" type="number" name="" id="telefono" placeholder="Telefono">
 
-                                <button type="submit" class="btn btn-dark" id="btn_RegistrarCat" style="margin-top: 15px;">Agregar</button>
+                                <input class="form-control" type="text" name="" id="email" placeholder="Email">
+
+                                <button type="submit" class="btn btn-dark" id="btn_RegistrarProv" style="margin-top: 15px;">Agregar</button>
                             </div>
                         </div>
                     </div>
@@ -121,18 +122,20 @@
     </div>
     </div>
 
-    <h2 id="tituloProd">Tabla de Categorias</h2>
+    <h2 id="tituloProd">Tabla de Proveedores</h2>
 
     <div class="div-tabla">
         <table class="table table-dark" id="tabla">
             <thead>
                 <tr class="table-active">
-                    <th>Nombre Categoria</th>
-                    <th>Descripcion</th>
+                    <th>Nombre Proveedor</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
                 </tr>
             </thead>
 
-            <tbody id="tablaCategorias">
+            <tbody id="tablaProveedores">
                 <!-- aqui van los datos -->
             </tbody>
         </table>
@@ -142,4 +145,4 @@
 </html>
 
 <!-- JS -->
-<script src="../JS/CategoriasUser.js"></script>
+<script src="../JS/ProveedoresUsers.js"></script>

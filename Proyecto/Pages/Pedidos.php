@@ -25,7 +25,7 @@
 
     <!--sweetalert-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
+
 </head>
 
 <body>
@@ -36,12 +36,13 @@
     <nav class="navbar">
         <ul>
             <li><a href="../home.php" class="fa fa-home"> Inicio</a></li>
+
             <li><a href="Productos.php" class="fa fa-dropbox"> Productos</a></li>
-            <li><a href="Ventas.php" class="fa fa-usd"> Ventas</a></li>
-            <li><a href="ReporteVentas.php" class="fa fa-bar-chart"> Reporte de ventas</a></li>
             <li><a href="Categorias.php" class="fa fa-list"> Categoria</a></li>
+            <li><a href="proveedores.php" class="fa fa-group"> Proveedores</a></li>
             <li><a href="Pedidos.php" class="active fa fa-book"> Pedidos de Clientes</a></li>
             <li><a href="Detalle_pedido.php" class="fa fa-clipboard"> Detalle de Pedidos de Clientes</a></li>
+
             <li><a href="../PHP/logout.php" class="fa fa-sign-out"> Logout</a></li>
 
             <div class="animation start-home"></div>
@@ -67,23 +68,23 @@
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     <h2>Pedidos</h2>
-                            
+
                                     <label for="sel_idCliente">Seleccione un Usuario:</label>
-                                        <select class="form-select" name="" id="sel_idCliente" style="margin-bottom: 10px;">
-                                            <option value="" selected>Seleccione un Usuario</option>
+                                    <select class="form-select" name="" id="sel_idCliente" style="margin-bottom: 10px;">
+                                        <option value="" selected>Seleccione un Usuario</option>
                                     </select>
-                                    
+
                                     <input class="form-control" type="datetime-local" name="" id="FechaPedido" placeholder="Fecha del pedido" style="margin-bottom: 10px;">
-                                        <select class="form-control" id="estado_pedido" name="estado_pedido" style="margin-bottom: 10px;">
-                                            <option value="">Estado del pedido</option>
-                                            <option value="pendiente">Pendiente</option>
-                                            <option value="procesado">Procesado</option>
-                                            <option value="entregado">Entregado</option>
-                                            <option value="cancelado">Cancelado</option>
-                                            <option value="enviado">Enviado</option>
-                                        </select>
+                                    <select class="form-control" id="estado_pedido" name="estado_pedido" style="margin-bottom: 10px;">
+                                        <option value="">Estado del pedido</option>
+                                        <option value="pendiente">Pendiente</option>
+                                        <option value="procesado">Procesado</option>
+                                        <option value="entregado">Entregado</option>
+                                        <option value="cancelado">Cancelado</option>
+                                        <option value="enviado">Enviado</option>
+                                    </select>
                                     <input class="form-control" type="int" name="" id="total_pedido" placeholder="Total del pedido" style="margin-bottom: 10px;">
-                                
+
                                     <button type="submit" class="btn btn-dark" id="btn_RegistrarPedido" style="margin-top: 15px;">Agregar</button>
                                 </div>
                             </div>
@@ -114,4 +115,5 @@
 </body>
 <!-- JS -->
 <script src="../JS/pedidos.js"></script>
+
 </html>
