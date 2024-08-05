@@ -117,11 +117,18 @@
                 </ul>
                 <!-- Carrito de Compras -->
                 <form class="d-flex">
-                    <button class="btn btn-outline-dark" type="submit">
+                    <!-- <button class="btn btn-outline-dark" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        Carrito
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button> -->
+
+                    <button class="btn btn-outline-dark" type="button" id="cart-button">
                         <i class="bi-cart-fill me-1"></i>
                         Carrito
                         <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                     </button>
+
                 </form>
             </div>
         </div>
@@ -327,6 +334,35 @@
 
         </div>
     </section>
+
+
+    <!-- MODAL CARRITO DE COMPRAS -->
+    <div id="cart-container" style="display: none;">
+        <!-- Inputs Modal Carrito Compras -->
+        <select class="form-select" name="" id="sel_idCliente" style="margin-bottom: 10px;">
+            <option value="" selected>Seleccione un Usuario</option>
+        </select>
+
+        <input class="form-control" type="datetime-local" name="" id="FechaPedido" placeholder="Fecha del pedido" style="margin-bottom: 10px;">
+
+        <select class="form-control" id="estado_pedido" name="estado_pedido" style="margin-bottom: 10px;">
+            <option value="">Estado del pedido</option>
+            <option value="pendiente" selected>Pendiente</option>
+            <option value="procesado">Procesado</option>
+            <option value="entregado">Entregado</option>
+            <option value="cancelado">Cancelado</option>
+            <option value="enviado">Enviado</option>
+        </select>
+
+        <!-- Productos Modal Carrito Compras-->
+        <h3>Productos</h3>
+        <hr>
+        <div id="cart-products"></div>
+
+        <button class="btn btn-success" id="checkout-button">Comprar</button>
+    </div>
+    <!-- ENDMODAL CARRITO DE COMPRAS -->
+
 
     <!-- Footer-->
     <footer class="py-5 bg-dark">
