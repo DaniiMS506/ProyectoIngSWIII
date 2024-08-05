@@ -82,7 +82,12 @@ $(document).ready(function () {
                     // Update the navbar with the user's name
                     $('#navbarDropdownLogin').html(`<i class="fas fa-user fa-fw"></i> ${result.data.Nombre} ${result.data.Apellido}`);
 
-                    // Optionally, you might want to hide or disable the login and registration links
+                    // Modal Carrito Compras
+                    updateClientSelect(result.data.Id_cliente, result.data.Nombre, result.data.Apellido);
+
+
+
+                    // Hide login and registration btn
                     $('#btn_Login').hide();
                     $('#btn_Registrarse').hide();
                 } else {
@@ -103,7 +108,17 @@ $(document).ready(function () {
         }
     });
 
+    // Function to update the select element
+    function updateClientSelect(id, nombre, apellido) {
+        const selectElement = $('#sel_idCliente');
+        selectElement.empty();  // Clear previous options
 
+        // Add default option
+        selectElement.append('<option value="" selected>Seleccione un Usuario</option>');
+
+        // Add the logged-in client as the only option
+        selectElement.append(`<option value="${id}">${nombre} ${apellido}</option>`);
+    }
 
     ///////////////////////////////////////////////////
     /* REGISTRARSE */
