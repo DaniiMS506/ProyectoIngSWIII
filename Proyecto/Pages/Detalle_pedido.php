@@ -38,6 +38,7 @@
             <li><a href="../home.php" class="fa fa-home"> Inicio</a></li>
 
             <li><a href="Productos.php" class="fa fa-dropbox"> Productos</a></li>
+            <li><a href="Pages/Inventario.php" class="fa fa-archive"> Inventario</a></li>
             <li><a href="Categorias.php" class="fa fa-list"> Categoria</a></li>
             <li><a href="proveedores.php" class="fa fa-group"> Proveedores</a></li>
             <li><a href="Pedidos.php" class="fa fa-users"> Pedidos de Clientes</a></li>
