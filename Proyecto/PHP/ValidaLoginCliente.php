@@ -32,11 +32,11 @@ if (isset($data['email']) && isset($data['password'])) {
         $user = $result->fetch_assoc();
         echo json_encode(["success" => true, "data" => $user]);
     } else {
-        echo json_encode(["success" => false, "message" => "Invalid email or password."]);
+        echo json_encode(["success" => false, "message" => "Correo electrónico o contraseña no válidos."]);
     }
 
     $stmt->close();
     $conn->close();
 } else {
-    echo json_encode(["success" => false, "message" => "Email and password required."]);
+    echo json_encode(["success" => false, "message" => "Se requiere correo electrónico y contraseña."]);
 }

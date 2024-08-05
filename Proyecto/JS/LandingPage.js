@@ -29,11 +29,29 @@ $(document).ready(function () {
                 '<input id="swal-input2" type="password" class="swal2-input" placeholder="Password">',
             focusConfirm: false,
             showCancelButton: true,
-            preConfirm: () => {
+            /*preConfirm: () => {
                 return [
                     document.getElementById('swal-input1').value,
                     document.getElementById('swal-input2').value
                 ];
+            }*/
+            preConfirm: () => {
+                const email = document.getElementById('swal-input1').value;
+                const password = document.getElementById('swal-input2').value;
+
+                if (!email || !password) {
+                    Swal.showValidationMessage('Por favor, complete ambos campos.');
+                    return false;
+                }
+
+                // Email validation (basic)
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    Swal.showValidationMessage('Por favor, ingrese un correo electrónico válido.');
+                    return false;
+                }
+
+                return [email, password];
             }
         });
 
@@ -69,7 +87,7 @@ $(document).ready(function () {
                     $('#btn_Registrarse').hide();
                 } else {
                     Swal.fire({
-                        title: 'Login Failed!',
+                        title: 'Login Fallido!',
                         text: result.message,
                         icon: 'error'
                     });
