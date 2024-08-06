@@ -31,11 +31,11 @@ VALUES
 INSERT INTO Categoria
     (Nombre_categoria, Descripcion)
 VALUES
-    ('Medicamentos', 'Productos relacionados con la salud'),
-    ('Higiene', 'Productos de limpieza y cuidado personal'),
-    ('Cremas', 'Cremas'),
+    ('Medicamentos', 'Productos para la salud'),
+    ('Higiene', 'Limpieza y cuidado personal'),
+    ('Cremas', 'Cremas para piel y cuerpo'),
     ('Sueros', 'Sueros'),
-    ('Ropa', 'Prendas Medicas');
+    ('Ropa', 'Ropa médica y de protección');
 
 -- Inserts para la tabla Producto
 INSERT INTO Producto
