@@ -258,3 +258,27 @@ const typed = new Typed('.multiple-text1', {
     backDelay: 1000,
     loop: true
 });
+
+
+
+/************************************ BUSCADOR ************************************/
+$(document).ready(function () {
+    $('#BuscarProducto').on('input', function () {
+        var searchTerm = $(this).val().toLowerCase();
+
+        $('.product-card').each(function () {
+            // Obtener los datos y asegurarse de que sean cadenas de texto / se pasan a lower
+            var name = String($(this).data('product-name') || '').toLowerCase();
+            var description = String($(this).data('product-description') || '').toLowerCase();
+            var price = String($(this).data('product-price') || '').toLowerCase();
+            var category = String($(this).data('product-category') || '').toLowerCase();
+
+            // Mostrar u ocultar la tarjeta en función de si el término de búsqueda está en el nombre, descripción, precio o categoría
+            if (name.includes(searchTerm) || description.includes(searchTerm) || price.includes(searchTerm) || category.includes(searchTerm)) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    });
+});

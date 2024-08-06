@@ -25,23 +25,32 @@
 
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         .cards-container {
-            display: flex;
+            /* display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            align-items: flex-start;
-            gap: 10px;
+            align-items: flex-start; */
+            gap: 20px;
             margin: 0 auto;
             max-width: 1200px;
         }
 
         .card {
-            width: 235px;
+            /* flex: 1 1 235px;
+            width: 235px; */
+            flex: 1 1 100%;
+            width: 100%;
+            max-width: 240px;
             height: 380px;
 
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            box-sizing: border-box;
         }
 
         .card-img-top {
@@ -63,14 +72,14 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 120px;
+            height: 140px;
         }
 
         .card-footer {
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            height: 80px;
+            height: 100px;
         }
     </style>
 </head>
@@ -117,12 +126,6 @@
                 </ul>
                 <!-- Carrito de Compras -->
                 <form class="d-flex">
-                    <!-- <button class="btn btn-outline-dark" type="submit">
-                        <i class="bi-cart-fill me-1"></i>
-                        Carrito
-                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                    </button> -->
-
                     <button class="btn btn-outline-dark" type="button" id="cart-button">
                         <i class="bi-cart-fill me-1"></i>
                         Carrito
@@ -286,21 +289,31 @@
 
             <!-- Cards PRODUCTOS-->
             <h2 class="h2" style="text-align: center;" id="Productos">Productos</h2>
+
+            <!-- Buscador -->
+            <input type="text" class="form-control" placeholder="Buscar Producto por Nombre, Descripcion, Precio o Categoria" id="BuscarProducto">
+
             <hr>
+
             <div class="cards-container">
 
                 <?php
                 require_once('Conexion/conn.php');
 
-                $sql = "SELECT p.Id_producto, p.Nombre_producto, p.Precio, p.Descripcion, i.Imagen 
+                /*$sql = "SELECT p.Id_producto, p.Nombre_producto, p.Precio, p.Descripcion, i.Imagen 
                     FROM Producto p 
                     LEFT JOIN Imagen i ON p.Id_producto = i.Id_producto";
+                $result = $conn->query($sql);*/
+                $sql = "SELECT p.Id_producto, p.Nombre_producto, p.Precio, p.Descripcion, i.Imagen, c.Nombre_categoria
+                        FROM Producto p
+                        LEFT JOIN Imagen i ON p.Id_producto = i.Id_producto
+                        LEFT JOIN Categoria c ON p.Id_categoria = c.Id_categoria";
                 $result = $conn->query($sql);
                 ?>
 
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <?php while ($row = $result->fetch_assoc()) : ?>
-                        <div class="col mb-5">
+                        <div class="col mb-5 product-card" data-product-name="<?php echo htmlspecialchars($row['Nombre_producto']); ?>" data-product-description="<?php echo htmlspecialchars($row['Descripcion']); ?>" data-product-price="<?php echo number_format($row['Precio'], 2); ?>" data-product-category="<?php echo htmlspecialchars($row['Nombre_categoria']); ?>">
                             <div class="card h-100">
                                 <!-- Product image-->
                                 <img class="card-img-top" src="data:image/jpeg;base64,<?php echo base64_encode($row['Imagen']); ?>" alt="Product Image" />
@@ -309,19 +322,25 @@
                                     <div class="text-center">
                                         <!-- Product name-->
                                         <h5 class="fw-bolder"><?php echo htmlspecialchars($row['Nombre_producto']); ?></h5>
+
                                         <!-- Product Description-->
                                         <span id="descripcion"><?php echo htmlspecialchars($row['Descripcion'], 2); ?></span>
-                                        <br>
+
+                                        <!-- Product Category-->
+                                        <p class="text-muted"><?php echo htmlspecialchars($row['Nombre_categoria']); ?></p>
+
                                         <!-- Product price-->
                                         <h6 id="precio">$<?php echo number_format($row['Precio'], 2); ?></h6>
                                     </div>
                                 </div>
+
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                     <div class="text-center">
                                         <button class="btn btn-outline-dark mt-auto add-to-cart" data-id="<?php echo $row['Id_producto']; ?>">Add to cart</button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     <?php endwhile; ?>
