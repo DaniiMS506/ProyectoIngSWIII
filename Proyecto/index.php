@@ -339,7 +339,16 @@
 
     <!-- MODAL CARRITO DE COMPRAS -->
     <div id="cart-container" style="display: none;">
+
+        <!-- Productos Modal Carrito Compras-->
+        <h3>Productos</h3>
+        <hr>
+        <div id="cart-products"></div>
+
         <!-- Inputs Modal Carrito Compras -->
+        <h3>Datos de Compra</h3>
+        <hr>
+
         <!-- Row 1 -->
         <div class="row">
             <div class="col-md-6">
@@ -373,13 +382,9 @@
             </div>
         </div>
 
-
-        <!-- Productos Modal Carrito Compras-->
-        <h3>Productos</h3>
-        <hr>
-        <div id="cart-products"></div>
-
+        <!-- BTN -->
         <button class="btn btn-success" id="checkout-button">Comprar</button>
+
     </div>
     <!-- ENDMODAL CARRITO DE COMPRAS -->
 

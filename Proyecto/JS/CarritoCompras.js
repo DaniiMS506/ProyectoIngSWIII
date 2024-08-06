@@ -162,27 +162,44 @@ document.addEventListener('click', function (event) {
 // Insert Pedido y Detalle Pedido
 async function checkoutCart() {
     try {
-        const response = await fetch('../PHP/Inserts/insertOrdenCarrito.php', {
+        console.log("Enviando datos al servidor:", JSON.stringify({ cart }));
+
+        const response = await fetch('/ProyectoIngSWIII/Proyecto/PHP/Inserts/insertOrdenCarrito.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(cart)
+            body: JSON.stringify({ cart }) // Enviar cart envuelto en un objeto
         });
-        const result = await response.json();
-        if (result.success) {
-            cart = [];
-            updateCartBadge();
-            return true;
+
+        const contentType = response.headers.get('Content-Type');
+        if (contentType && contentType.includes('application/json')) {
+            const result = await response.json();
+            if (result.success) {
+                cart = [];
+                updateCartBadge();
+                return true;
+            } else {
+                console.error(result.message);
+                return false;
+            }
         } else {
-            console.error(result.message);
+            const text = await response.text();
+            console.error('Respuesta del servidor no es JSON:', text);
             return false;
         }
+
     } catch (error) {
-        console.error(error);
+        console.error('Error al procesar la solicitud:', error);
         return false;
     }
 }
+
+
+
+
+
+
 
 
 
