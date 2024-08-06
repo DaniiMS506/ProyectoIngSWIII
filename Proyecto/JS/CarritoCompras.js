@@ -194,12 +194,3 @@ async function checkoutCart() {
         return false;
     }
 }
-
-
-
-
-
-
-
-
-

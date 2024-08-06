@@ -376,8 +376,7 @@
                 <label for="tipo_envio" style="float: inline-start;">Tipo de Envio:</label>
                 <select class="form-control" id="tipo_envio" name="tipo_envio" style="margin-bottom: 10px;">
                     <option value="">Tipo de envio</option>
-                    <option value="Express">Express</option>
-                    <option value="Tienda">En tienda</option>
+                    <option value="Express" selected>Express</option>
                 </select>
             </div>
         </div>

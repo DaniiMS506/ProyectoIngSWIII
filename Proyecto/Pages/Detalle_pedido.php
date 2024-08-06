@@ -86,7 +86,7 @@
                                     <select class="form-control" id="tipo_envio" name="tipo_envio" style="margin-bottom: 10px;">
                                         <option value="">Tipo de envio</option>
                                         <option value="Express">Express</option>
-                                        <option value="Tienda">En tienda</option>
+                                        <option value="Tienda">En Tienda</option>
                                     </select>
 
                                     <input class="form-control" type="text" name="" id="total" placeholder="Total Final" style="margin-bottom: 10px;" readonly>

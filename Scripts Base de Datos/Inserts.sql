@@ -60,13 +60,13 @@ VALUES
 -- Inserts para la tabla Detalle de Pedido
     INSERT INTO Detalle_Pedido (Id_pedido, Id_producto, Cantidad, Tipo_envio, Total)
 VALUES
-    (1, 1, 2, 'En tienda', 5.99),   
+    (1, 1, 2, 'Tienda', 5.99),   
     (1, 2, 1, 'Express', 8.50),    
-    (2, 3, 5, 'En tienda', 3.25),   
+    (2, 3, 5, 'Tienda', 3.25),   
     (2, 4, 1, 'Express', 299.99),  
     (3, 2, 3, 'Express', 8.50),    
-    (4, 5, 2, 'En tienda', 12.99),  
-    (5, 1, 1, 'En tienda', 5.99);   
+    (4, 5, 2, 'Tienda', 12.99),  
+    (5, 1, 1, 'Tienda', 5.99);   
 
 -- Inserts para la tabla Proveedor
 INSERT INTO Proveedor
