@@ -41,7 +41,7 @@ $(document).ready(function () {
                         `);
 
                         // Limpiar los campos del formulario
-                        $('#NombreCategoria, #descripcion').val('');
+                        $('#nombreCategoria, #descripcion').val('');
 
                         // Mostrar mensaje de éxito
                         swal("Categoria Agregada!", "La categoria ha sido insertada correctamente.", "success");
