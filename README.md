@@ -34,7 +34,9 @@ El proyecto está orientado al desarrollo y ejecución de una plataforma de come
 ##
 
 ## Plataforma de Gestión del Proyecto
-[![Acceso a la plataforma de gestión de proyectos utilizada para coordinar y monitorizar el desarrollo de TecnoFarma.](https://media.licdn.com/dms/image/D5612AQEkh5mb6ixu3w/article-cover_image-shrink_720_1280/0/1677409231085?e=2147483647&v=beta&t=jTGsX2U-7kXTPjDdUZ9zu_-1WF9r32kMM7H38OOK7kU)](https://trello.com/invite/b/666b8e8964c67a5833c8e931/ATTI1cfc0d167ae3f57661620207aadd0007180ABB87/project-management
+Para obtener una visión detallada de la planificación, seguimiento y administración del desarrollo, puedes acceder a la plataforma de gestión del proyecto *haciendo click en la imagen*
+
+[![Acceso a la plataforma de gestión de proyectos utilizada para coordinar y monitorizar el desarrollo de TecnoFarma.](https://media.licdn.com/dms/image/D5612AQEkh5mb6ixu3w/article-cover_image-shrink_720_1280/0/1677409231085?e=2147483647&v=beta&t=jTGsX2U-7kXTPjDdUZ9zu_-1WF9r32kMM7H38OOK7kU)](https://trello.com/invite/b/666b8e8964c67a5833c8e931/ATTI1cfc0d167ae3f57661620207aadd0007180ABB87/project-management "Acceder a la plataforma de gestión del proyecto"
 )
 
 ##
