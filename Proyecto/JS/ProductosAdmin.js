@@ -329,12 +329,6 @@ function eliminarProducto(id_producto) {
                     }
                 },
                 error: function () {
-                    /* swal({
-                            icon: 'error',
-                            title: 'Error',
-                            text: 'Error al eliminar el registro.',
-                            showConfirmButton: true
-                    });*/
                     swal("Error", `Error al eliminar el registro.`, "error");
                 }
             });
