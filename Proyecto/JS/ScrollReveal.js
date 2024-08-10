@@ -6,7 +6,7 @@ ScrollReveal({
     delay: 5
 });
 
-ScrollReveal().reveal('.navbar, .container', { origin: 'top' });
+ScrollReveal().reveal('.container', { origin: 'top' });
 ScrollReveal().reveal('.h2', { origin: 'buttom' });
 ScrollReveal().reveal('.card', { origin: 'left' });
 ScrollReveal().reveal('.footer', { origin: 'right' });
