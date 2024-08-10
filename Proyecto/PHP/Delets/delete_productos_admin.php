@@ -19,6 +19,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+
+    // Establecer Id_producto en NULL en la tabla Detalle_Pedido
+    $queryUpdate = "UPDATE Detalle_Pedido SET Id_producto = NULL WHERE Id_producto = ?";
+    $stmtUpdate = mysqli_prepare($conn, $queryUpdate);
+    mysqli_stmt_bind_param($stmtUpdate, 'i', $id_producto);
+    mysqli_stmt_execute($stmtUpdate);
+    mysqli_stmt_close($stmtUpdate);
+
+
     // Eliminar imagen asociada al producto
     $queryImg = "DELETE FROM Imagen WHERE Id_producto = ?";
     $stmtImg = mysqli_prepare($conn, $queryImg);

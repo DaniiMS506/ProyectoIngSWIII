@@ -62,13 +62,14 @@ CREATE TABLE Pedido (
 CREATE TABLE Detalle_Pedido (
     Id_detalle INT AUTO_INCREMENT PRIMARY KEY,
     Id_pedido INT,
-    Id_producto INT,
+    Id_producto INT NULL,  -- Permitir NULL en Id_producto
     Cantidad INT NOT NULL,
     Tipo_envio VARCHAR(15) NOT NULL,
     Total DECIMAL(10, 2) NOT NULL,
     CONSTRAINT FK_Detalle_Pedido_Pedido FOREIGN KEY (Id_pedido) REFERENCES Pedido(Id_pedido),
     CONSTRAINT FK_Detalle_Pedido_Producto FOREIGN KEY (Id_producto) REFERENCES Producto(Id_producto)
 );
+
 
 /* Tabla Proveedores */
 CREATE TABLE Proveedor (
